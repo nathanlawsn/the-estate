@@ -4,9 +4,9 @@ import hero002 from '../images/hero-002.jpg';
 ---
 <section class="grid sm:grid-cols-2 relative h-[75vh]">
 
-    <div class="bg-slate-700 flex flex-col justify-end">
-        <img class="object-cover w-full h-full" src={hero001} alt="A man standing on a mountain">
-        <a class="bg-orange-400 text-white flex items-center gap-5 justify-between sm:gap-[4.75rem] px-5 py-3 min-h-[6.25rem] w-full" href="#">
+    <div class="bg-slate-700 relative group overflow-hidden">
+        <img class="object-cover w-full h-full group-hover:scale-110 duration-[3000ms] transition-transform block" src={hero001} alt="A man standing on a mountain">
+        <a class="bg-orange-400 text-white flex items-center gap-5 justify-between sm:gap-[4.75rem] px-5 py-3 min-h-[6.25rem] w-full absolute bottom-0" href="#">
             <span class="text-[2.125rem]">Book now</span>
             <span>
                 <svg xmlns="http://www.w3.org/2000/svg" width="17.978" height="17.978" viewBox="0 0 17.978 17.978">
@@ -19,8 +19,8 @@ import hero002 from '../images/hero-002.jpg';
         </a>
     </div>
 
-    <div class="bg-slate-600 hidden sm:block">
-        <img class="object-cover w-full h-full" src={hero002} alt="A boat on a lake">
+    <div class="bg-slate-600 hidden sm:block group overflow-hidden">
+        <img class="object-cover w-full h-full group-hover:scale-110 duration-[3000ms] transition-transform block" src={hero002} alt="A boat on a lake">
     </div>
 
     <h1 class="text-[3.125rem] text-white text-center left-0 right-0 text-4xl absolute top-1/2 -translate-y-1/2">A Lodge full of adventure</h1>

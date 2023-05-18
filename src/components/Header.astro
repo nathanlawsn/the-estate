@@ -1,12 +1,13 @@
 ---
 import Button from "./Button.astro";
+import Container from "./Container.astro";
 import Logo from "./Logo.astro";
 ---
 <header class="bg-white py-[1.875rem]">
-    <div class="w-full max-w-[90rem] mx-auto px-8">
+    <Container>
         <div class="flex items-center justify-between gap-4">
             <Logo />
             <Button text="Book now" url="#" arrow />
         </div>
-    </div>
+    </Container>
 </header>

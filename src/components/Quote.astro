@@ -1,0 +1,19 @@
+---
+import Container from "./Container.astro";
+const { quote, name } = Astro.props;
+---
+<section>
+    <div class="py-48">
+        <Container>
+            <figure class="text-center max-w-[60rem] mx-auto">
+                <blockquote>
+                    <p class="text-3xl">{quote}</p>
+                </blockquote>
+                <figcaption class="mt-8">
+                    <p class="text-primary-orange">{name}</p>
+                </figcaption>
+            </figure>
+        </Container>
+    </div>
+    <div class="w-full h-[7px] bg-[#999999]"></div>
+</section>

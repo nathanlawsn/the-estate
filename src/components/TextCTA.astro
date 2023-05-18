@@ -1,0 +1,15 @@
+---
+import Button from "./Button.astro";
+import Container from "./Container.astro";
+const { text, button, buttonText, buttonURL } = Astro.props;
+---
+<section class="py-28">
+    <Container>
+        <div class="grid sm:grid-cols-2 md:grid-cols-[minmax(0,_53.25rem)_minmax(0,_1fr)] gap-10 items-end">
+            <div class="text-3xl/10">{text}</div>
+            <div class="justify-self-end">
+                {button && <Button text={buttonText} url={buttonURL} arrow />}
+            </div>
+        </div>
+    </Container>
+</section>

@@ -1,0 +1,49 @@
+---
+const { image, name, description } = Astro.props;
+---
+<div class="overflow-hidden relative group cursor-pointer">
+    <img src={image} alt="">
+    <div class="flex items-center gap-2 bg-white/90 rounded-[100px] absolute top-7 right-7 h-11 px-4">
+        <span>
+            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="18" viewBox="0 0 22 18">
+                <g id="Group_14" data-name="Group 14" transform="translate(-1 -3)">
+                    <path id="Path_13" data-name="Path 13" d="M2,4V20" fill="none" stroke="#ff834b" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+                    <path id="Path_14" data-name="Path 14" d="M2,8H20a2,2,0,0,1,2,2V20" fill="none" stroke="#ff834b" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+                    <path id="Path_15" data-name="Path 15" d="M2,17H22" fill="none" stroke="#ff834b" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+                    <path id="Path_16" data-name="Path 16" d="M6,8v9" fill="none" stroke="#ff834b" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+                </g>
+            </svg>
+        </span>
+        <span class="font-medium text-[0.938rem]">Up to 6 people</span>
+    </div>
+    <div class="bg-white absolute bottom-0 w-full translate-y-[13.5rem] group-hover:translate-y-0 duration-500 ease-in-out">
+        <div class="flex items-end justify-between gap-5 px-6 py-7">
+            <p class="text-3xl">{name}</p>
+            <span class="flex items-center gap-4">
+                <span class="text-xl">Details</span>
+                <span>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="17.978" height="17.979" viewBox="0 0 17.978 17.979">
+                        <g id="arrow-up-right" transform="translate(-5.586 -5.586)">
+                            <line id="Line_1" data-name="Line 1" y1="15.15" x2="15.15" transform="translate(7 7)" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+                            <path id="Path_1" data-name="Path 1" d="M7,7H22.18V22.18" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+                        </g>
+                    </svg>
+                </span>
+            </span>
+        </div>
+        <div class="px-6 pb-7">
+            <p class="text-base text-[#999999]">{description}</p>
+        </div>
+        <a class="bg-orange-400 text-white flex items-center gap-5 justify-between sm:gap-[4.75rem] px-6 py-7 w-full" href="#">
+            <span class="text-3xl">Book now</span>
+            <span>
+                <svg xmlns="http://www.w3.org/2000/svg" width="17.978" height="17.978" viewBox="0 0 17.978 17.978">
+                    <g id="arrow-up-right" transform="translate(1.414 1.414)">
+                        <line id="Line_1" data-name="Line 1" y1="15.15" x2="15.15" fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></line>
+                        <path id="Path_1" data-name="Path 1" d="M0,0H15.18V15.18" fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+                    </g>
+                </svg>
+            </span>
+        </a>
+    </div>
+</div>
