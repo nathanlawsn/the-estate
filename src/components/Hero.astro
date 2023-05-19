@@ -1,6 +1,8 @@
 ---
 import { Icon } from 'astro-icon';
 
+const { heading } = Astro.props;
+
 import hero001 from '../images/hero-001.jpg';
 import hero002 from '../images/hero-002.jpg';
 ---
@@ -20,6 +22,6 @@ import hero002 from '../images/hero-002.jpg';
         <img class="object-cover w-full h-full group-hover:scale-110 duration-[3000ms] transition-transform block" src={hero002} alt="A boat on a lake">
     </div>
 
-    <h1 class="text-[3.125rem] text-white text-center left-0 right-0 text-4xl absolute top-1/2 -translate-y-1/2">A Lodge full of adventure</h1>
+    <h1 class="text-[3.125rem] text-white text-center left-0 right-0 text-4xl absolute top-1/2 -translate-y-1/2">{heading}</h1>
 
 </section>
