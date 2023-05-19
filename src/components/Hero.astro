@@ -1,20 +1,17 @@
 ---
+import { Icon } from 'astro-icon';
+
 import hero001 from '../images/hero-001.jpg';
 import hero002 from '../images/hero-002.jpg';
 ---
 <section class="grid sm:grid-cols-2 relative h-[75vh]">
 
-    <div class="bg-slate-700 relative group overflow-hidden">
+    <div class="bg-slate-700 relative group overflow-hidden cursor-pointer">
         <img class="object-cover w-full h-full group-hover:scale-110 duration-[3000ms] transition-transform block" src={hero001} alt="A man standing on a mountain">
-        <a class="bg-orange-400 text-white flex items-center gap-5 justify-between sm:gap-[4.75rem] px-5 py-3 min-h-[6.25rem] w-full absolute bottom-0" href="#">
+        <a class="bg-orange-400 text-white flex items-center gap-5 justify-between sm:gap-[4.75rem] px-5 md:px-11 py-3 min-h-[6.25rem] w-full absolute bottom-0 group-hover:bg-primary-purple transition-colors duration-500 ease-in-out" href="#">
             <span class="text-[2.125rem]">Book now</span>
-            <span>
-                <svg xmlns="http://www.w3.org/2000/svg" width="17.978" height="17.978" viewBox="0 0 17.978 17.978">
-                    <g id="arrow-up-right" transform="translate(1.414 1.414)">
-                        <line id="Line_1" data-name="Line 1" y1="15.15" x2="15.15" fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
-                        <path id="Path_1" data-name="Path 1" d="M0,0H15.18V15.18" fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
-                    </g>
-                </svg>
+            <span class="block w-8 h-8 group-hover:rotate-45 duration-500 ease-in-out">
+                <Icon name="arrow" />
             </span>
         </a>
     </div>
