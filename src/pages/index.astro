@@ -1,22 +1,52 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import Hero from '../components/Hero.astro';
-import Quote from '../components/Quote.astro';
-import TextCTA from '../components/TextCTA.astro';
-import Lodges from '../components/Lodges.astro';
-import FeaturedSlider from '../components/FeaturedSlider.astro';
-import ImageCTAGrid from '../components/ImageCTAGrid.astro';
+import Layout from "../layouts/Layout.astro";
+import Hero from "../components/Hero.astro";
+import Quote from "../components/Quote.astro";
+import TextCTA from "../components/TextCTA.astro";
+import Lodges from "../components/Lodges.astro";
+import FeaturedSlider from "../components/FeaturedSlider.astro";
+import ImageCTAGrid from "../components/ImageCTAGrid.astro";
 
 const items = [
-	['Kestrel', 'Country setting with an urban edge in this family and friends suited property. Open plan living in a stunning surrounding and views of Ullswater lakeshore will make this a favourite for many.', 6, '../src/images/lodge-kestrel-001.jpg'], 
-	['Osprey', 'Country setting with an urban edge in this family and friends suited property. Open plan living in a stunning surrounding and views of Ullswater lakeshore will make this a favourite for many.', 4, '../src/images/lodge-hollow-001.jpg'],
-	['Buzzard', 'Country setting with an urban edge in this family and friends suited property. Open plan living in a stunning surrounding and views of Ullswater lakeshore will make this a favourite for many.', 6, '../src/images/lodge-buzzard-001.jpg']
+	[
+		"Kestrel",
+		"Country setting with an urban edge in this family and friends suited property. Open plan living in a stunning surrounding and views of Ullswater lakeshore will make this a favourite for many.",
+		6,
+		"../src/images/lodge-kestrel-001.jpg",
+	],
+	[
+		"Osprey",
+		"Country setting with an urban edge in this family and friends suited property. Open plan living in a stunning surrounding and views of Ullswater lakeshore will make this a favourite for many.",
+		4,
+		"../src/images/lodge-hollow-001.jpg",
+	],
+	[
+		"Buzzard",
+		"Country setting with an urban edge in this family and friends suited property. Open plan living in a stunning surrounding and views of Ullswater lakeshore will make this a favourite for many.",
+		6,
+		"../src/images/lodge-buzzard-001.jpg",
+	],
 ];
 
 const items2 = [
-	['The Hollow', 'Country setting with an urban edge in this family and friends suited property. Open plan living in a stunning surrounding and views of Ullswater lakeshore will make this a favourite for many.', 6, '../src/images/lodge-hollow-001.jpg'], 
-	['The Sett', 'Country setting with an urban edge in this family and friends suited property. Open plan living in a stunning surrounding and views of Ullswater lakeshore will make this a favourite for many.', 4, '../src/images/lodge-kestrel-001.jpg'],
-	['The Drey', 'Country setting with an urban edge in this family and friends suited property. Open plan living in a stunning surrounding and views of Ullswater lakeshore will make this a favourite for many.', 6, '../src/images/lodge-drey-001.jpg']
+	[
+		"The Hollow",
+		"Country setting with an urban edge in this family and friends suited property. Open plan living in a stunning surrounding and views of Ullswater lakeshore will make this a favourite for many.",
+		6,
+		"../src/images/lodge-hollow-001.jpg",
+	],
+	[
+		"The Sett",
+		"Country setting with an urban edge in this family and friends suited property. Open plan living in a stunning surrounding and views of Ullswater lakeshore will make this a favourite for many.",
+		4,
+		"../src/images/lodge-kestrel-001.jpg",
+	],
+	[
+		"The Drey",
+		"Country setting with an urban edge in this family and friends suited property. Open plan living in a stunning surrounding and views of Ullswater lakeshore will make this a favourite for many.",
+		6,
+		"../src/images/lodge-drey-001.jpg",
+	],
 ];
 ---
 
@@ -24,12 +54,12 @@ const items2 = [
 	<main>
 		<Hero heading="A Lodge full of adventure" />
 		<TextCTA
-			text="Immerse your family in views of this unique part of the World Heritage Site, a favourite for nature lovers and outdoor explorers." 
+			text="Immerse your family in views of this unique part of the World Heritage Site, a favourite for nature lovers and outdoor explorers."
 			button
 			buttonText="View all lodges"
-			buttonURL="#" 
+			buttonURL="#"
 		/>
-		<FeaturedSlider 
+		<FeaturedSlider
 			heading="Outdoor explorers"
 			subheading="A day at the Lakeview lodge"
 			description="From the cozy lodge to the thrill of the lake, your adventure awaits on The Estate at the southern end of Lake Ullswater."
@@ -44,7 +74,7 @@ const items2 = [
 			description="More spacious than our chalets, lodges are a great choice for large family groups. The 3 bedroom format works well for accommodating extended family,  friends, or children of different age groups. Benefitting from their proximity to Waterfall Woods, lodge guests frequently report badger and red squirrel sightings from their windows and verandas. And with red deer and over 50 different species of birds regularly sighted, the accommodation is a delight for nature lovers."
 			items={items2}
 		/>
-		<Quote 
+		<Quote
 			quote="“What a fabulous place to stay for walking and cycling in the Ullswater lake area. Chalets are well equipped, comfortable and very homely, location is great, but what really makes it stand out are the staff”"
 			name="Sarah - Coventry"
 		/>

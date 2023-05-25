@@ -1,19 +1,23 @@
 ---
+import QuoteSlider from "../components/QuoteSlider.jsx";
 import Container from "./Container.astro";
 const { quote, name } = Astro.props;
 ---
-<section>
-    <div class="py-48">
-        <Container>
-            <figure class="text-center max-w-[60rem] mx-auto">
-                <blockquote>
-                    <p class="text-3xl">{quote}</p>
-                </blockquote>
-                <figcaption class="mt-8">
-                    <p class="text-primary-orange">{name}</p>
-                </figcaption>
-            </figure>
-        </Container>
-    </div>
-    <div class="w-full h-[7px] bg-[#999999]"></div>
+
+<section class="bg-white">
+	<QuoteSlider client:visible quote={quote} name={name} />
 </section>
+
+<style is:global>
+	:root {
+		--swiper-theme-color: #ff834b !important;
+		--swiper-pagination-progressbar-size: 7px;
+	}
+	.swiper-horizontal > .swiper-pagination-progressbar,
+	.swiper-pagination-progressbar.swiper-pagination-horizontal {
+		@apply !top-auto bottom-0;
+	}
+	.swiper-pagination-progressbar .swiper-pagination-progressbar-fill {
+		@apply rounded-r-full;
+	}
+</style>
