@@ -6,7 +6,7 @@ const Modal = ({ isOpen, onClose }) => {
 	return (
 		<div className={`fixed z-50 top-0 bottom-0 left-0 right-0 duration-500 ease-in-out transition-colors ${isOpen ? 'bg-black/80 pointer-events-auto' : 'bg-transparent pointer-events-none'}`}>
 			<div className={`fixed duration-500 transition-transform z-50 top-1/2 left-0 right-0 justify-center items-center flex ${isOpen ? '-translate-y-1/2' : 'translate-y-[200%]'}`}>
-				<div className="relative">
+				<div className="relative w-full max-w-5xl px-8">
 					<div className="bg-black">
 						<Video />
 					</div>
@@ -36,7 +36,7 @@ const App = () => {
 	<>
 		<div class="aspect-[696/640] bg-black flex items-center justify-center relative">
 		    <img class="object-cover w-full h-full" src={placeholder} alt="A child having fun in water"></img>
-			<div className='absolute top-1/2 -translate-y-1/2 hover:scale-105 duration-500 ease-in-out transition-transform' onClick={handleOpenModal}>
+			<div className='absolute z-30 top-1/2 -translate-y-1/2 hover:scale-105 duration-500 ease-in-out transition-transform' onClick={handleOpenModal}>
 				<svg xmlns="http://www.w3.org/2000/svg" width="88" height="88" viewBox="0 0 88 88">
 				<g id="Group_24" data-name="Group 24" transform="translate(-446.25 -1652)">
 					<g id="Ellipse_3" data-name="Ellipse 3" transform="translate(446.25 1652)" fill="#fff" stroke="#fff" strokeWidth="1">
