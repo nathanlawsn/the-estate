@@ -24,7 +24,7 @@ export default function QuoteSlider({quote, name}) {
                 <blockquote>
                     <p className="text-3xl/[2.5rem]">{quote}</p>
                 </blockquote>
-                <figcaption class="mt-8">
+                <figcaption className="mt-8">
                     <p className="text-primary-orange text-3xl/[2.5rem]">{name}</p>
                 </figcaption>
             </figure>
