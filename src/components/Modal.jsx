@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import Video from './Video';
-import placeholder from '../images/video-placeholder.jpg';
 
 const Modal = ({ isOpen, onClose }) => {
 	return (
@@ -34,9 +33,9 @@ const App = () => {
 
 	return (
 	<>
-		<div class="aspect-[696/640] bg-black flex items-center justify-center relative">
-		    <img class="object-cover w-full h-full" src={placeholder} alt="A child having fun in water"></img>
-			<div className='absolute z-30 top-1/2 -translate-y-1/2 hover:scale-105 duration-500 ease-in-out transition-transform' onClick={handleOpenModal}>
+		<div className="aspect-[696/640] bg-black flex items-center justify-center relative">
+		    <img class="object-cover w-full h-full" src="src/images/video-placeholder.jpg" alt="A child having fun in water"></img>
+			<div className='absolute cursor-pointer z-30 top-1/2 -translate-y-1/2 hover:scale-105 duration-500 ease-in-out transition-transform' onClick={handleOpenModal}>
 				<svg xmlns="http://www.w3.org/2000/svg" width="88" height="88" viewBox="0 0 88 88">
 				<g id="Group_24" data-name="Group 24" transform="translate(-446.25 -1652)">
 					<g id="Ellipse_3" data-name="Ellipse 3" transform="translate(446.25 1652)" fill="#fff" stroke="#fff" strokeWidth="1">
