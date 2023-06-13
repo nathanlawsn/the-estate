@@ -1,0 +1,52 @@
+---
+import { Icon } from "astro-icon";
+import { Picture } from "@astrojs/image/components";
+
+const { name, description, sleeps, image } = Astro.props;
+---
+
+<div class="overflow-hidden relative group cursor-pointer bg-white">
+	<Picture
+		src={image}
+		widths={[768, 1024]}
+		aspectRatio="483:659"
+		sizes="(max-width: 768px) 100vw, 1024px"
+		alt={name}
+	/>
+	<div
+		class="flex items-center gap-2 bg-white/90 rounded-[100px] absolute top-7 right-7 h-11 px-4"
+	>
+		<span class="block w-5 h-4">
+			<Icon name="bed" />
+		</span>
+		<span class="font-medium text-[0.938rem]">Up to {sleeps} people</span>
+	</div>
+
+	<div
+		class="bg-white absolute bottom-0 w-full translate-y-[calc(100%-5.75rem)] group-hover:translate-y-0 duration-500 ease-in-out"
+	>
+		<div class="flex items-center justify-between gap-5 px-6 py-7">
+			<p class="text-3xl">{name}</p>
+			<span class="flex items-center gap-4">
+				<span class="text-xl">Details</span>
+				<span class="block w-4 h-4">
+					<Icon name="arrow" />
+				</span>
+			</span>
+		</div>
+		<div>
+			<div class="px-6 pb-7">
+				<p class="text-base text-[#999999]">{description}</p>
+			</div>
+			<a
+				class="bg-orange-400 text-white flex items-center gap-5 justify-between sm:gap-[4.75rem] px-6 py-7 w-full"
+				href="#"
+			>
+				<span class="text-3xl">Book now</span>
+				<span class="block w-4 h-4">
+					<Icon name="arrow" />
+				</span>
+			</a>
+		</div>
+	</div>
+</div>

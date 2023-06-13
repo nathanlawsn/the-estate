@@ -1,0 +1,19 @@
+---
+import { Icon } from "astro-icon";
+
+const { text, url, arrow } = Astro.props;
+---
+
+<a
+	class="rounded-full bg-primary-orange text-white flex items-center justify-between gap-5 sm:gap-[4.75rem] px-5 py-3 min-h-[3.125rem] sm:min-w-[13.125rem] hover:bg-primary-orange/90 transition-colors duration-500 ease-in-out group"
+	href={url}
+>
+	<span>{text}</span>
+	{
+		arrow && (
+			<span class="group-hover:rotate-45 duration-500 ease-in-out block w-4 h-4">
+				<Icon name="arrow" />
+			</span>
+		)
+	}
+</a>

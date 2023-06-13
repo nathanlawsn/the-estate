@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="22" height="18" viewBox="0 0 22 18">
+    <g id="Group_14" data-name="Group 14" transform="translate(-1 -3)">
+        <path id="Path_13" data-name="Path 13" d="M2,4V20" fill="none" stroke="#ff834b" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+        <path id="Path_14" data-name="Path 14" d="M2,8H20a2,2,0,0,1,2,2V20" fill="none" stroke="#ff834b" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+        <path id="Path_15" data-name="Path 15" d="M2,17H22" fill="none" stroke="#ff834b" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+        <path id="Path_16" data-name="Path 16" d="M6,8v9" fill="none" stroke="#ff834b" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+    </g>
+</svg>

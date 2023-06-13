@@ -1,0 +1,22 @@
+---
+import QuoteSlider from "../components/QuoteSlider.jsx";
+const { quote, name } = Astro.props;
+---
+
+<section class="bg-white mt-24">
+	<QuoteSlider client:visible quote={quote} name={name} />
+</section>
+
+<style is:global>
+	:root {
+		--swiper-theme-color: #ff834b !important;
+		--swiper-pagination-progressbar-size: 7px;
+	}
+	.swiper-horizontal > .swiper-pagination-progressbar,
+	.swiper-pagination-progressbar.swiper-pagination-horizontal {
+		@apply !top-auto bottom-0;
+	}
+	.swiper-pagination-progressbar .swiper-pagination-progressbar-fill {
+		@apply rounded-r-full;
+	}
+</style>

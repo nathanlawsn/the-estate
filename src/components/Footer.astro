@@ -1,0 +1,115 @@
+---
+import Container from "./Container.astro";
+import { Icon } from "astro-icon";
+---
+
+<footer>
+	<div class="bg-primary-purple text-white pt-20 lg:pb-[7.5rem] relative">
+		<Container>
+			<div
+				class="grid gap-10 lg:gap-20 xl:gap-44 lg:grid-cols-[minmax(0,_2fr)_minmax(0,_1fr)]"
+			>
+				<div class="flex flex-col gap-10 justify-between">
+					<p class="text-2xl md:text-3xl/[2.5rem]">
+						An estate full of adventure. Come and explore everything
+						we have to offer, from our amazing landscape to our
+						preserved beauty wildlife a place for everyone and thing
+						to thrive.
+					</p>
+
+					<div class="flex flex-col gap-4">
+						<p>Tel: +44 (0) 17684 82308</p>
+						<p>Email: mail@the-estate.co.uk</p>
+						<p>
+							Address: The Estate, Glenridding, Penrith CA11 0PJ
+						</p>
+					</div>
+				</div>
+
+				<div class="flex gap-20">
+					<div>
+						<h3 class="mb-9 text-2xl md:text-3xl font-medium">
+							Sitemap
+						</h3>
+						<ul
+							class="text-[0.938rem] font-medium flex flex-col gap-2"
+						>
+							<li>
+								<a class="hover:underline" href="#"
+									>Accommodation</a
+								>
+							</li>
+							<li>
+								<a class="hover:underline" href="#">Reviews</a>
+							</li>
+							<li>
+								<a class="hover:underline" href="#">Volunteer</a
+								>
+							</li>
+							<li>
+								<a class="hover:underline" href="#">About</a>
+							</li>
+							<li>
+								<a class="hover:underline" href="#"
+									>My Account</a
+								>
+							</li>
+							<li>
+								<a class="hover:underline" href="#"
+									>Privacy policy</a
+								>
+							</li>
+							<li>
+								<a class="hover:underline" href="#"
+									>Terms & Conditions</a
+								>
+							</li>
+							<li>
+								<a class="hover:underline" href="#"
+									>Cookie policy</a
+								>
+							</li>
+						</ul>
+					</div>
+
+					<div>
+						<h3 class="mb-9 text-2xl md:text-3xl font-medium">
+							Social
+						</h3>
+						<ul
+							class="text-[0.938rem] font-medium flex flex-col gap-2"
+						>
+							<li>
+								<a class="hover:underline" href="#">Facebook</a>
+							</li>
+							<li>
+								<a class="hover:underline" href="#">Instagram</a
+								>
+							</li>
+							<li>
+								<a class="hover:underline" href="#">TikTok</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+
+			<div
+				class="mt-10 w-full max-w-md lg:absolute lg:bottom-0 lg:left-1/2"
+			>
+				<Icon name="illustration-hiking" />
+			</div>
+		</Container>
+	</div>
+
+	<div class="py-6">
+		<Container>
+			<p class="font-medium text-[#999999] text-[0.938rem]">
+				The Estate reg. company no. 02768297 is a wholely owned
+				subsidiary of YMCA North Tyneside. (Charity No: 1011495,
+				Provider of Social Housing No: 4793, Ofsted Registration:
+				EY555165)
+			</p>
+		</Container>
+	</div>
+</footer>

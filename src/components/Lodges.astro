@@ -1,0 +1,53 @@
+---
+import Container from "./Container.astro";
+import Lodge from "./Lodge.astro";
+import { Icon } from "astro-icon";
+
+const { heading, description, items } = Astro.props;
+---
+
+<section class="pt-20 md:pt-40">
+	<Container>
+		<h2 class="font-medium font-sans text-[2.5rem]/[2.5rem] mb-[3.25rem]">
+			{heading}
+		</h2>
+		<div
+			class="grid md:grid-cols-2 md:gap-20 lg:grid-cols-[minmax(0,_3fr)_minmax(0,_2fr)] gap-10 lg:gap-56"
+		>
+			<p>{description}</p>
+			<ul class="flex flex-col gap-6 font-medium text-lg">
+				<li class="flex items-center gap-4">
+					<span class="block w-8 h-8">
+						<Icon name="key" />
+					</span>
+					<span>Check-in is at 16:00pm</span>
+				</li>
+				<li class="flex items-center gap-4">
+					<span class="block w-8 h-8">
+						<Icon name="camera" />
+					</span>
+					<span>Lake views</span>
+				</li>
+				<li class="flex items-center gap-4">
+					<span class="block w-8 h-8">
+						<Icon name="pets" />
+					</span>
+					<span>Pet friendly</span>
+				</li>
+			</ul>
+		</div>
+
+		<div class="mt-20 grid gap-10 md:gap-0 md:grid-cols-2 lg:grid-cols-3">
+			{
+				items.map((item) => (
+					<Lodge
+						name={item[0]}
+						description={item[1]}
+						sleeps={item[2]}
+						image={item[3]}
+					/>
+				))
+			}
+		</div>
+	</Container>
+</section>
