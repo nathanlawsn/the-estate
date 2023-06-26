@@ -3,11 +3,21 @@ import Button from "./Button.astro";
 import Container from "./Container.astro";
 import Logo from "./Logo.astro";
 ---
+
 <header class="bg-white py-[1.875rem]">
     <Container>
         <div class="flex items-center justify-between gap-4">
             <Logo />
-            <Button text="Book now" url="#" arrow />
+            <div class="flex justify-end gap-20">
+                <ul class="flex items-center gap-8 font-medium text-lg">
+                    <li><a class="hover:underline" href="">Home</a></li>
+                    <li><a class="hover:underline" href="">Reviews</a></li>
+                    <li><a class="hover:underline" href="">Volunteer</a></li>
+                    <li><a class="hover:underline" href="">About</a></li>
+                    <li><a class="hover:underline" href="">My Account</a></li>
+                </ul>
+                <Button text="Book now" url="#" arrow />
+            </div>
         </div>
     </Container>
 </header>

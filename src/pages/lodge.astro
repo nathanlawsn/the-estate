@@ -1,0 +1,25 @@
+---
+import Gallery from "../components/Gallery.astro";
+import QuoteSlider from "../components/QuoteSlider.astro";
+import ImageCTAGrid from "../components/ImageCTAGrid.astro";
+import VideoFullScreen from "../components/VideoFullScreen.astro";
+import TextCTA from "../components/TextCTA.astro";
+import Layout from "../layouts/Layout.astro";
+import LodgeDetails from "../components/LodgeDetails.astro";
+---
+
+<Layout title="The Estate">
+    <main>
+        <VideoFullScreen />
+        <TextCTA
+            text="You will be greeted from floor to ceiling with a view of lake and fells, giving you the perfect setting to your stay. Kestrel offers the perfect balance of comfort and family life in one of the most beautiful parts of England."
+        />
+        <LodgeDetails />
+        <Gallery />
+        <QuoteSlider
+            quote="“What a fabulous place to stay for walking and cycling in the Ullswater lake area. Chalets are well equipped, comfortable and very homely, location is great, but what really makes it stand out are the staff”"
+            name="Sarah - Coventry"
+        />
+        <ImageCTAGrid />
+    </main>
+</Layout>

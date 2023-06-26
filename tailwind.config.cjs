@@ -9,6 +9,7 @@ module.exports = {
 			colors: {
 				'primary-orange': '#FF834B',
 				'primary-purple': '#522D43',
+				'grey-light': '#EDEDED',
 			},
 			fontFamily: {
 				sans: ["NeueMontreal", ...defaultTheme.fontFamily.sans],
