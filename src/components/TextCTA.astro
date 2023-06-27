@@ -10,7 +10,7 @@ const { text, button, buttonText, buttonURL } = Astro.props;
 		<div
 			class="grid sm:grid-cols-[minmax(0,_53.25rem)_minmax(0,_auto)] gap-10 items-end"
 		>
-			<div class="text-3xl/10">{text}</div>
+			<p class="text-3xl/10 m-0">{text}</p>
 			<div class="sm:justify-self-end">
 				{button && <Button text={buttonText} url={buttonURL} arrow />}
 			</div>
