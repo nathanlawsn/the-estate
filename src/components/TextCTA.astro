@@ -12,7 +12,17 @@ const { text, button, buttonText, buttonURL } = Astro.props;
 		>
 			<p class="text-3xl/10 m-0">{text}</p>
 			<div class="sm:justify-self-end">
-				{button && <Button text={buttonText} url={buttonURL} arrow />}
+				{
+					button && (
+						<Button
+							text={buttonText}
+							url={buttonURL}
+							arrow
+							arrowDown
+							mono
+						/>
+					)
+				}
 			</div>
 		</div>
 	</Container>

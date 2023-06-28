@@ -20,7 +20,7 @@ export default function QuoteSlider({quote, name}) {
         speed={500}
     >
         <SwiperSlide>
-            <figure className="text-center max-w-[60rem] mx-auto">
+            <figure className="text-center max-w-[60rem] mx-auto px-8">
                 <blockquote>
                     <p className="text-2xl sm:text-3xl/[2.5rem] m-0">{quote}</p>
                 </blockquote>
@@ -30,7 +30,7 @@ export default function QuoteSlider({quote, name}) {
             </figure>
         </SwiperSlide>
         <SwiperSlide>
-            <figure className="text-center max-w-[60rem] mx-auto">
+            <figure className="text-center max-w-[60rem] mx-auto px-8">
                 <blockquote>
                     <p className="text-2xl sm:text-3xl/[2.5rem] m-0">“What a fabulous place to stay for walking and cycling in the Ullswater lake area. Chalets are well equipped, comfortable and very homely, location is great, but what really makes it stand out are the staff”</p>
                 </blockquote>
@@ -40,7 +40,7 @@ export default function QuoteSlider({quote, name}) {
             </figure>
         </SwiperSlide>
         <SwiperSlide>
-            <figure className="text-center max-w-[60rem] mx-auto">
+            <figure className="text-center max-w-[60rem] mx-auto px-8">
                 <blockquote>
                     <p className="text-2xl sm:text-3xl/[2.5rem] m-0">“What a fabulous place to stay for walking and cycling in the Ullswater lake area. Chalets are well equipped, comfortable and very homely, location is great, but what really makes it stand out are the staff”</p>
                 </blockquote>

@@ -1,7 +1,7 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import Hero from "../components/Hero.astro";
-import QuoteSlider from "../components/QuoteSlider.astro";
+import Quote from "../components/Quote.astro";
 import TextCTA from "../components/TextCTA.astro";
 import Lodges from "../components/Lodges.astro";
 import VideoSlider from "../components/VideoSlider.astro";
@@ -13,18 +13,24 @@ const items = [
 		"Country setting with an urban edge in this family and friends suited property. Open plan living in a stunning surrounding and views of Ullswater lakeshore will make this a favourite for many.",
 		6,
 		"/images/lodge-kestrel-001.jpg",
+		"/images/lodge-interior-001.jpg",
+		"https://patterdalehallestate.anytimebooking.eu/place_booking/preset/48449/69534/#forward",
 	],
 	[
 		"Osprey",
 		"Country setting with an urban edge in this family and friends suited property. Open plan living in a stunning surrounding and views of Ullswater lakeshore will make this a favourite for many.",
 		4,
 		"/images/lodge-hollow-001.jpg",
+		"/images/lodge-interior-001.jpg",
+		"https://patterdalehallestate.anytimebooking.eu/place_booking/preset/48449/69535/#forward",
 	],
 	[
 		"Buzzard",
 		"Country setting with an urban edge in this family and friends suited property. Open plan living in a stunning surrounding and views of Ullswater lakeshore will make this a favourite for many.",
 		6,
 		"/images/lodge-buzzard-001.jpg",
+		"/images/lodge-interior-001.jpg",
+		"https://patterdalehallestate.anytimebooking.eu/place_booking/preset/48449/69536/#forward",
 	],
 ];
 
@@ -34,18 +40,24 @@ const items2 = [
 		"Country setting with an urban edge in this family and friends suited property. Open plan living in a stunning surrounding and views of Ullswater lakeshore will make this a favourite for many.",
 		6,
 		"/images/lodge-hollow-001.jpg",
+		"/images/lodge-interior-002.jpg",
+		"https://patterdalehallestate.anytimebooking.eu/place_booking/preset/48449/35476/#forward",
 	],
 	[
 		"The Sett",
 		"Country setting with an urban edge in this family and friends suited property. Open plan living in a stunning surrounding and views of Ullswater lakeshore will make this a favourite for many.",
 		4,
 		"/images/lodge-kestrel-001.jpg",
+		"/images/lodge-interior-002.jpg",
+		"https://patterdalehallestate.anytimebooking.eu/place_booking/preset/48449/35477/#forward",
 	],
 	[
 		"The Drey",
 		"Country setting with an urban edge in this family and friends suited property. Open plan living in a stunning surrounding and views of Ullswater lakeshore will make this a favourite for many.",
 		6,
 		"/images/lodge-drey-001.jpg",
+		"/images/lodge-interior-002.jpg",
+		"https://patterdalehallestate.anytimebooking.eu/place_booking/preset/48449/35478/#forward",
 	],
 ];
 ---
@@ -57,7 +69,7 @@ const items2 = [
 			text="Immerse your family in views of this unique part of the World Heritage Site, a favourite for nature lovers and outdoor explorers."
 			button
 			buttonText="View all lodges"
-			buttonURL="#"
+			buttonURL="#lakeview-lodges"
 		/>
 		<VideoSlider
 			heading="Outdoor explorers"
@@ -65,16 +77,18 @@ const items2 = [
 			description="From the cozy lodge to the thrill of the lake, your adventure awaits on The Estate at the southern end of Lake Ullswater."
 		/>
 		<Lodges
+			id="lakeview-lodges"
 			heading="Lakeview lodges"
 			description="Our premium lodges set on lakeside fields with exceptional views of Lake Ullswater and the fells that surround us. The properties benefit from large open living spaces with high end fixtures and fittings to make your stay comfortable. Set in lakeside fields, you will be immersed in views both inside and out of these brand new properties. Each have large private decks overlooking the lake and fells."
 			items={items}
 		/>
 		<Lodges
+			id="pine-lodges"
 			heading="Pine lodges"
 			description="More spacious than our chalets, lodges are a great choice for large family groups. The 3 bedroom format works well for accommodating extended family,  friends, or children of different age groups. Benefitting from their proximity to Waterfall Woods, lodge guests frequently report badger and red squirrel sightings from their windows and verandas. And with red deer and over 50 different species of birds regularly sighted, the accommodation is a delight for nature lovers."
 			items={items2}
 		/>
-		<QuoteSlider
+		<Quote
 			quote="“What a fabulous place to stay for walking and cycling in the Ullswater lake area. Chalets are well equipped, comfortable and very homely, location is great, but what really makes it stand out are the staff”"
 			name="Sarah - Coventry"
 		/>

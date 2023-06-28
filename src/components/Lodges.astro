@@ -3,10 +3,10 @@ import Container from "./Container.astro";
 import Lodge from "./Lodge.astro";
 import { Icon } from "astro-icon";
 
-const { heading, description, items } = Astro.props;
+const { heading, description, items, id } = Astro.props;
 ---
 
-<section class="pt-20 md:pt-40">
+<section class="pt-20 md:pt-40" id={id}>
 	<Container>
 		<h2 class="font-medium font-sans text-[2.5rem]/[2.5rem] mb-[3.25rem]">
 			{heading}
@@ -45,6 +45,8 @@ const { heading, description, items } = Astro.props;
 						description={item[1]}
 						sleeps={item[2]}
 						image={item[3]}
+						interior={item[4]}
+						url={item[5]}
 					/>
 				))
 			}

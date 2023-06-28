@@ -1,6 +1,6 @@
 ---
 import Gallery from "../components/Gallery.astro";
-import QuoteSlider from "../components/QuoteSlider.astro";
+import Quote from "../components/Quote.astro";
 import ImageCTAGrid from "../components/ImageCTAGrid.astro";
 import VideoFullScreen from "../components/VideoFullScreen.astro";
 import TextCTA from "../components/TextCTA.astro";
@@ -8,7 +8,7 @@ import Layout from "../layouts/Layout.astro";
 import LodgeDetails from "../components/LodgeDetails.astro";
 ---
 
-<Layout title="The Estate">
+<Layout title="The Estate" nav>
     <main>
         <VideoFullScreen />
         <TextCTA
@@ -16,7 +16,7 @@ import LodgeDetails from "../components/LodgeDetails.astro";
         />
         <LodgeDetails />
         <Gallery />
-        <QuoteSlider
+        <Quote
             quote="“What a fabulous place to stay for walking and cycling in the Ullswater lake area. Chalets are well equipped, comfortable and very homely, location is great, but what really makes it stand out are the staff”"
             name="Sarah - Coventry"
         />
