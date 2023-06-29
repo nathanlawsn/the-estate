@@ -7,6 +7,7 @@
 node_modules/
 dist/
 public/
+src/images/
 
 # Compiled Java class files
 *.class
@@ -48,5 +49,4 @@ Thumbs.db
 *.flv
 *.mov
 *.wmv
-*.jpg
 
