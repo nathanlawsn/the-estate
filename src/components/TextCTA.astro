@@ -2,10 +2,18 @@
 import Button from "./Button.astro";
 import Container from "./Container.astro";
 
-const { text, button, buttonText, buttonURL } = Astro.props;
+export interface Props {
+	text: string;
+	button?: boolean;
+	buttonText?: string;
+	buttonURL?: string;
+	styles?: string;
+}
+
+const { text, button, buttonText, buttonURL, styles } = Astro.props;
 ---
 
-<section class="bg-white py-28">
+<section class={`py-16 md:py-28 ${styles && styles}`}>
 	<Container>
 		<div
 			class="grid sm:grid-cols-[minmax(0,_53.25rem)_minmax(0,_auto)] gap-10 items-end"

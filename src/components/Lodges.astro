@@ -37,7 +37,9 @@ const { heading, description, items, id } = Astro.props;
 			</ul>
 		</div>
 
-		<div class="mt-20 grid gap-10 md:gap-0 md:grid-cols-2 lg:grid-cols-3">
+		<div
+			class="mt-10 md:mt-20 grid gap-10 md:gap-0 md:grid-cols-2 lg:grid-cols-3"
+		>
 			{
 				items.map((item) => (
 					<Lodge

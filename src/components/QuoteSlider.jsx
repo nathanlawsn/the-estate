@@ -8,7 +8,7 @@ import { Autoplay, Pagination } from "swiper";
 export default function QuoteSlider({quote, name}) {
   return (
     <Swiper
-        className="!py-32 md:!py-48"
+        className="!py-24 md:!py-48"
         autoplay={{
           delay: 5000,
           disableOnInteraction: false,

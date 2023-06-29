@@ -9,19 +9,20 @@ const { name, description, sleeps, image, interior, url } = Astro.props;
 	<div class="relative">
 		<Picture
 			src={image}
-			widths={[768, 1024]}
+			widths={[480]}
 			aspectRatio="483:659"
-			sizes="(max-width: 768px) 100vw, 1024px"
+			sizes="(max-width: 480px) 100vw, 1024px"
 			alt={name}
-			class="absolute top-0 left-0 opacity-100 group-hover:opacity-0 duration-500 ease-in-out"
+			fit="cover"
+			class="top-0 left-0 opacity-100 group-hover:opacity-0 duration-500 ease-in-out"
 		/>
 		<Picture
 			src={interior}
-			widths={[768, 1024]}
-			aspectRatio="483:659"
-			sizes="(max-width: 768px) 100vw, 1024px"
+			widths={[480]}
+			aspectRatio="483:483"
+			sizes="(max-width: 480px) 100vw, 1024px"
 			alt={name}
-			class="top-0 left-0 opacity-0 group-hover:opacity-100 duration-500 ease-in-out"
+			class="absolute top-0 left-0 opacity-0 group-hover:opacity-100 duration-500 ease-in-out"
 		/>
 	</div>
 	<div

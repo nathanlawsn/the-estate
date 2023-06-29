@@ -9,7 +9,8 @@ export default function VideoSwiper({subheading, heading, description}) {
   return (
     <div className="flex flex-col max-w-full">
         <Swiper
-            className="w-full"
+            id="video-swiper"
+            className="w-full h-full"
             autoplay={{
             delay: 5000,
             disableOnInteraction: false,
@@ -22,10 +23,10 @@ export default function VideoSwiper({subheading, heading, description}) {
         >
             <SwiperSlide>
                 <div class="flex flex-col">
-                    <div class="text-center max-w-lg mx-auto lg:py-24">
+                    <div class="text-center max-w-[30rem] mx-auto lg:py-24">
                         <div class="mb-4 text-lg font-medium">{subheading}</div>
                         <h2
-                            class="text-primary-orange font-medium font-sans text-[2.5rem]/[2.5rem] mb-8 md:mb-12"
+                            class="text-primary-orange font-medium font-sans text-3xl md:text-[2.5rem]/[2.5rem] mb-8 md:mb-12"
                         >
                             {heading}
                         </h2>
@@ -38,7 +39,20 @@ export default function VideoSwiper({subheading, heading, description}) {
                     <div class="text-center max-w-lg mx-auto lg:py-24">
                         <div class="mb-4 text-lg font-medium">{subheading}</div>
                         <h2
-                            class="text-primary-orange font-medium font-sans text-[2.5rem]/[2.5rem] mb-8 md:mb-12"
+                            class="text-primary-orange font-medium font-sans text-3xl md:text-[2.5rem]/[2.5rem] mb-8 md:mb-12"
+                        >
+                            {heading}
+                        </h2>
+                        <p class="m-0">{description}</p>
+                    </div>
+                </div>
+            </SwiperSlide>
+            <SwiperSlide>
+                <div class="flex flex-col">
+                    <div class="text-center max-w-lg mx-auto lg:py-24">
+                        <div class="mb-4 text-lg font-medium">{subheading}</div>
+                        <h2
+                            class="text-primary-orange font-medium font-sans text-3xl md:text-[2.5rem]/[2.5rem] mb-8 md:mb-12"
                         >
                             {heading}
                         </h2>
