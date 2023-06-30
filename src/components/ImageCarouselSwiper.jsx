@@ -1,9 +1,9 @@
 import { Swiper, SwiperSlide } from 'swiper/react';
 
 import 'swiper/css';
-import "swiper/css/pagination";
+import "swiper/css/navigation";
 
-import { Autoplay, Pagination } from "swiper";
+import { Autoplay, Navigation } from "swiper";
 
 export default function ImageCarouselSwiper() {
   return (
@@ -13,17 +13,21 @@ export default function ImageCarouselSwiper() {
           delay: 5000,
           disableOnInteraction: false,
         }}
-        pagination={{
-          type: "progressbar",
-        }}
-        modules={[Autoplay, Pagination]}
+        navigation
+        modules={[Autoplay, Navigation]}
         speed={500}
     > 
         <SwiperSlide>
-            <p>TEST</p>
+            <img src="/public/images/lodge-carousel-001.jpg" alt="Placeholder" />
         </SwiperSlide>
         <SwiperSlide>
-            <p>TEST</p>
+            <img src="/public/images/lodge-carousel-001.jpg" alt="Placeholder" />
+        </SwiperSlide>
+        <SwiperSlide>
+            <img src="/public/images/lodge-carousel-001.jpg" alt="Placeholder" />
+        </SwiperSlide>
+        <SwiperSlide>
+            <img src="/public/images/lodge-carousel-001.jpg" alt="Placeholder" />
         </SwiperSlide>
     </Swiper>
   );

@@ -1,8 +1,7 @@
 ---
 import Container from "./Container.astro";
 import ImageCarousel from "./ImageCarousel.astro";
-
-import carousel001 from "../images/lodge-carousel-001.jpg";
+import { Icon } from "astro-icon";
 ---
 
 <section class="py-20">
@@ -142,27 +141,16 @@ import carousel001 from "../images/lodge-carousel-001.jpg";
                     most beautiful parts of England.
                 </p>
 
-                <div class="mt-14">
+                <div class="mt-14 group">
                     <a
-                        class="bg-orange-400 text-white flex items-center gap-5 justify-between sm:gap-[4.75rem] px-6 py-7 w-full"
+                        class="bg-orange-400 text-white flex items-center gap-5 justify-between sm:gap-[4.75rem] px-6 py-7 w-full group-hover:bg-primary-purple transition-colors duration-500"
                         href="#"
                     >
                         <span class="text-3xl">Book your stay</span>
-                        <span class="block w-4 h-4">
-                            <svg viewBox="0 0 17.978 17.978" astro-icon="arrow"
-                                ><g
-                                    fill="none"
-                                    stroke="currentColor"
-                                    stroke-linecap="round"
-                                    stroke-linejoin="round"
-                                    stroke-width="2"
-                                    ><path
-                                        d="m1.414 16.564 15.15-15.15"
-                                        data-name="Line 1"></path><path
-                                        d="M1.414 1.414h15.18v15.18"
-                                        data-name="Path 1"></path></g
-                                ></svg
-                            >
+                        <span
+                            class="block w-6 h-6 group-hover:rotate-45 duration-500 ease-in-out"
+                        >
+                            <Icon name="arrow" />
                         </span>
                     </a>
                 </div>
