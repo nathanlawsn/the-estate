@@ -18,16 +18,16 @@ export default function ImageCarouselSwiper() {
         speed={500}
     > 
         <SwiperSlide>
-            <img src="/public/images/lodge-carousel-001.jpg" alt="Placeholder" />
+            <img src="/images/lodge-carousel-001.jpg" alt="Placeholder" />
         </SwiperSlide>
         <SwiperSlide>
-            <img src="/public/images/lodge-carousel-001.jpg" alt="Placeholder" />
+            <img src="/images/lodge-carousel-001.jpg" alt="Placeholder" />
         </SwiperSlide>
         <SwiperSlide>
-            <img src="/public/images/lodge-carousel-001.jpg" alt="Placeholder" />
+            <img src="/images/lodge-carousel-001.jpg" alt="Placeholder" />
         </SwiperSlide>
         <SwiperSlide>
-            <img src="/public/images/lodge-carousel-001.jpg" alt="Placeholder" />
+            <img src="/images/lodge-carousel-001.jpg" alt="Placeholder" />
         </SwiperSlide>
     </Swiper>
   );

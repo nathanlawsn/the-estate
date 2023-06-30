@@ -1,136 +1,51 @@
 ---
 import Container from "./Container.astro";
 import ImageCarousel from "./ImageCarousel.astro";
+import Accordion from "./Accordion";
 import { Icon } from "astro-icon";
+
+const tabs = [
+    {
+        title: "Tab 1",
+        content: "Content for Tab 1",
+    },
+    {
+        title: "Tab 2",
+        content: "Content for Tab 2",
+    },
+    {
+        title: "Tab 3",
+        content: "Content for Tab 3",
+    },
+];
 ---
 
-<section class="py-20">
+<section class="pb-16 md:py-20">
     <Container>
         <div
-            class="grid md:grid-cols-2 gap-10 lg:gap-20 xl:gap-36 lg:grid-cols-[minmax(0,_30.25rem)_minmax(0,_auto)]"
+            class="grid grid-cols-1 md:grid-cols-2 gap-10 lg:gap-20 xl:gap-36 lg:grid-cols-[minmax(0,_30.25rem)_minmax(0,_auto)]"
         >
             <div>
                 <h2 class="font-medium text-3xl mb-10">
                     Additional information
                 </h2>
+
                 <ul class="text-xl mb-14">
-                    <li
-                        class="flex justify-between gap-4 items-end border-b border-white py-6"
-                    >
-                        Lodge information
-                        <span>
-                            <svg
-                                xmlns="http://www.w3.org/2000/svg"
-                                width="17.978"
-                                height="17.978"
-                                viewBox="0 0 17.978 17.978"
-                            >
-                                <g
-                                    id="arrow-up-right"
-                                    transform="translate(23.564 -5.586) rotate(90)"
-                                >
-                                    <line
-                                        id="Line_1"
-                                        data-name="Line 1"
-                                        y1="15.15"
-                                        x2="15.15"
-                                        transform="translate(7 7)"
-                                        fill="none"
-                                        stroke="#000"
-                                        stroke-linecap="round"
-                                        stroke-linejoin="round"
-                                        stroke-width="2"></line>
-                                    <path
-                                        id="Path_1"
-                                        data-name="Path 1"
-                                        d="M7,7H22.18V22.18"
-                                        fill="none"
-                                        stroke="#000"
-                                        stroke-linecap="round"
-                                        stroke-linejoin="round"
-                                        stroke-width="2"></path>
-                                </g>
-                            </svg>
-                        </span>
-                    </li>
-                    <li
-                        class="flex justify-between gap-4 items-end border-b border-white py-6"
-                    >
-                        General property information
-                        <span>
-                            <svg
-                                xmlns="http://www.w3.org/2000/svg"
-                                width="17.978"
-                                height="17.978"
-                                viewBox="0 0 17.978 17.978"
-                            >
-                                <g
-                                    id="arrow-up-right"
-                                    transform="translate(23.564 -5.586) rotate(90)"
-                                >
-                                    <line
-                                        id="Line_1"
-                                        data-name="Line 1"
-                                        y1="15.15"
-                                        x2="15.15"
-                                        transform="translate(7 7)"
-                                        fill="none"
-                                        stroke="#000"
-                                        stroke-linecap="round"
-                                        stroke-linejoin="round"
-                                        stroke-width="2"></line>
-                                    <path
-                                        id="Path_1"
-                                        data-name="Path 1"
-                                        d="M7,7H22.18V22.18"
-                                        fill="none"
-                                        stroke="#000"
-                                        stroke-linecap="round"
-                                        stroke-linejoin="round"
-                                        stroke-width="2"></path>
-                                </g>
-                            </svg>
-                        </span>
-                    </li>
-                    <li
-                        class="flex justify-between gap-4 items-end border-b border-white py-6"
-                    >
-                        Items provided
-                        <span>
-                            <svg
-                                xmlns="http://www.w3.org/2000/svg"
-                                width="17.978"
-                                height="17.978"
-                                viewBox="0 0 17.978 17.978"
-                            >
-                                <g
-                                    id="arrow-up-right"
-                                    transform="translate(23.564 -5.586) rotate(90)"
-                                >
-                                    <line
-                                        id="Line_1"
-                                        data-name="Line 1"
-                                        y1="15.15"
-                                        x2="15.15"
-                                        transform="translate(7 7)"
-                                        fill="none"
-                                        stroke="#000"
-                                        stroke-linecap="round"
-                                        stroke-linejoin="round"
-                                        stroke-width="2"></line>
-                                    <path
-                                        id="Path_1"
-                                        data-name="Path 1"
-                                        d="M7,7H22.18V22.18"
-                                        fill="none"
-                                        stroke="#000"
-                                        stroke-linecap="round"
-                                        stroke-linejoin="round"
-                                        stroke-width="2"></path>
-                                </g>
-                            </svg>
-                        </span>
-                    </li>
+                    <Accordion
+                        title="Lodge information"
+                        content="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus neque ex, malesuada vel tortor ut, efficitur tempor mauris. Fusce ultricies volutpat vulputate. Aenean nibh mauris, fringilla ut ullamcorper sit amet, elementum et mi. "
+                        client:visible
+                    />
+                    <Accordion
+                        title="General property information"
+                        content="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus neque ex, malesuada vel tortor ut, efficitur tempor mauris. Fusce ultricies volutpat vulputate. Aenean nibh mauris, fringilla ut ullamcorper sit amet, elementum et mi. "
+                        client:visible
+                    />
+                    <Accordion
+                        title="Items provided"
+                        content="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus neque ex, malesuada vel tortor ut, efficitur tempor mauris. Fusce ultricies volutpat vulputate. Aenean nibh mauris, fringilla ut ullamcorper sit amet, elementum et mi. "
+                        client:visible
+                    />
                 </ul>
 
                 <p class="text-base">
