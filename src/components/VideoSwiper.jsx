@@ -22,7 +22,7 @@ export default function VideoSwiper({subheading, heading, description}) {
             speed={500}
         >
             <SwiperSlide>
-                <div class="flex flex-col">
+                <div class="flex flex-col mb-8 lg:m-0">
                     <div class="text-center max-w-[30rem] mx-auto lg:py-24">
                         <div class="mb-4 text-lg font-medium">{subheading}</div>
                         <h2

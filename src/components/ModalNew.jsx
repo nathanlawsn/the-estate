@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import Video from './Video';
 
-const Modal = ({ isOpen, onClose, url }) => {
+const ModalNew = ({ isOpen, onClose, url }) => {
 	return (
 		<div className={`fixed z-50 top-0 bottom-0 left-0 right-0 duration-500 ease-in-out transition-colors ${isOpen ? 'bg-black/80 pointer-events-auto' : 'bg-transparent pointer-events-none'}`}>
 			<div className={`fixed duration-500 transition-transform z-50 top-1/2 left-0 right-0 justify-center items-center flex ${isOpen ? '-translate-y-1/2' : 'translate-y-[200%]'}`}>
@@ -33,22 +33,19 @@ const App = ({url}) => {
 
 	return (
 	<>
-		<div className="aspect-[696/640] bg-black flex items-center justify-center relative">
-		    <img className="object-cover w-full h-full" src="src/images/video-placeholder.jpg" alt="A child having fun in water"></img>
-			<div className='absolute cursor-pointer z-30 top-1/2 -translate-y-1/2 hover:scale-105 duration-500 ease-in-out transition-transform' onClick={handleOpenModal}>
-				<svg xmlns="http://www.w3.org/2000/svg" width="88" height="88" viewBox="0 0 88 88">
-				<g id="Group_24" data-name="Group 24" transform="translate(-446.25 -1652)">
-					<g id="Ellipse_3" data-name="Ellipse 3" transform="translate(446.25 1652)" fill="#fff" stroke="#fff" strokeWidth="1">
-					<circle cx="44" cy="44" r="44" stroke="none"/>
-					<circle cx="44" cy="44" r="43.5" fill="none"/>
-					</g>
-					<path id="Polygon_3" data-name="Polygon 3" d="M11,0,22,19H0Z" transform="translate(502.25 1684.5) rotate(90)" fill="#ff834b"/>
+		<div className='absolute cursor-pointer left-0 right-0 z-30 top-1/2 -translate-y-1/2 hover:scale-105 duration-500 ease-in-out transition-transform flex justify-center' onClick={handleOpenModal}>
+			<svg xmlns="http://www.w3.org/2000/svg" width="88" height="88" viewBox="0 0 88 88">
+			<g id="Group_24" data-name="Group 24" transform="translate(-446.25 -1652)">
+				<g id="Ellipse_3" data-name="Ellipse 3" transform="translate(446.25 1652)" fill="#fff" stroke="#fff" strokeWidth="1">
+				<circle cx="44" cy="44" r="44" stroke="none"/>
+				<circle cx="44" cy="44" r="43.5" fill="none"/>
 				</g>
-				</svg>
-			</div>
+				<path id="Polygon_3" data-name="Polygon 3" d="M11,0,22,19H0Z" transform="translate(502.25 1684.5) rotate(90)" fill="#ff834b"/>
+			</g>
+			</svg>
 		</div>
 
-		<Modal isOpen={isModalOpen} onClose={handleCloseModal} url={url} />
+		<ModalNew isOpen={isModalOpen} onClose={handleCloseModal} url={url} />
 	</>
 	);
 };

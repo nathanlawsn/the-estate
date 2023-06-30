@@ -1,5 +1,23 @@
 ---
 import hero001 from "../images/lodge-hero-001.jpg";
+import ModalNew from "./ModalNew";
+import { Picture } from "@astrojs/image/components";
 ---
 
-<section></section>
+<div class="relative flex-grow">
+    <div class="w-full h-full absolute left-0 top-0">
+        <Picture
+            src={hero001}
+            widths={[400, 800, 1600]}
+            aspectRatio="16:8"
+            sizes="(max-width: 1600px) 100vw, 1600px"
+            alt="A man standing on a mountain"
+            fit="cover"
+            class="w-full h-full object-cover"
+        />
+    </div>
+    <ModalNew
+        url="https://www.youtube.com/watch?v=_kBMhQ7_AwY"
+        client:visible
+    />
+</div>

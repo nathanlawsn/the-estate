@@ -11,42 +11,44 @@ import { Icon } from "astro-icon";
 
 <Layout title="The Estate" nav>
     <main>
-        <VideoFullScreen />
-        <section>
-            <div class="grid lg:grid-cols-2">
-                <div
-                    class="flex flex-col md:flex-row md:items-center md:justify-between py-6 px-5 gap-4 min-h-[5rem] bg-white md:pr-16"
-                >
-                    <h1 class="text-3xl font-medium">
-                        Lakeside Lodge - Kestrel
-                    </h1>
-                    <div class="flex items-center gap-2">
-                        <span class="block w-5 h-4">
-                            <Icon name="bed" />
-                        </span>
-                        <span class="font-medium text-[0.938rem]"
-                            >Up to 6 people</span
+        <section class="h-[85dvh] flex flex-col">
+            <VideoFullScreen />
+            <div>
+                <div class="grid lg:grid-cols-2">
+                    <div
+                        class="flex flex-col md:flex-row md:items-center md:justify-between py-6 px-5 gap-4 min-h-[5rem] bg-white md:pr-16"
+                        data-push="left"
+                    >
+                        <h1 class="text-3xl font-medium">
+                            Lakeside Lodge - Kestrel
+                        </h1>
+                        <div class="flex items-center gap-2">
+                            <span class="block w-5 h-4">
+                                <Icon name="bed" />
+                            </span>
+                            <span class="font-medium text-[0.938rem]"
+                                >Up to 6 people</span
+                            >
+                        </div>
+                    </div>
+
+                    <div class="group bg-orange-400" data-push="right">
+                        <a
+                            class="bg-orange-400 text-white flex items-center gap-5 justify-between sm:gap-[4.75rem] px-5 md:px-11 py-3 min-h-[5rem] sm:min-h-[6.25rem] w-full group-hover:bg-primary-purple transition-colors duration-500 ease-in-out"
+                            href="https://patterdalehallestate.anytimebooking.eu/place_booking/#forward"
                         >
+                            <span class="text-2xl sm:text-[2.125rem]"
+                                >Book your stay</span
+                            >
+                            <span
+                                class="block w-6 h-6 sm:w-8 sm:h-8 group-hover:rotate-45 duration-500 ease-in-out"
+                            >
+                                <Icon name="arrow" />
+                            </span>
+                        </a>
                     </div>
                 </div>
-
-                <div class="group">
-                    <a
-                        class="bg-orange-400 text-white flex items-center gap-5 justify-between sm:gap-[4.75rem] px-5 md:px-11 py-3 min-h-[5rem] sm:min-h-[6.25rem] w-full group-hover:bg-primary-purple transition-colors duration-500 ease-in-out"
-                        href="https://patterdalehallestate.anytimebooking.eu/place_booking/#forward"
-                    >
-                        <span class="text-2xl sm:text-[2.125rem]"
-                            >Book your stay</span
-                        >
-                        <span
-                            class="block w-6 h-6 sm:w-8 sm:h-8 group-hover:rotate-45 duration-500 ease-in-out"
-                        >
-                            <Icon name="arrow" />
-                        </span>
-                    </a>
-                </div>
             </div>
-            <div></div>
         </section>
         <TextCTA
             text="You will be greeted from floor to ceiling with a view of lake and fells, giving you the perfect setting to your stay. Kestrel offers the perfect balance of comfort and family life in one of the most beautiful parts of England."
