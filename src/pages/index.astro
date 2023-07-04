@@ -7,6 +7,12 @@ import Lodges from "../components/Lodges.astro";
 import VideoSlider from "../components/VideoSlider.astro";
 import ImageCTAGrid from "../components/ImageCTAGrid.astro";
 
+let res = await fetch(
+	"http://theestate.cargo/wp-json/wp/v2/pages?slug=homepage"
+);
+let page = await res.json();
+// let acf = page[0].acf
+
 const items = [
 	[
 		"Kestrel",
@@ -64,18 +70,28 @@ const items2 = [
 
 <Layout title="The Estate">
 	<main>
-		<Hero heading="A Lodge full of adventure" />
+		<Hero
+			heading={page[0].acf.hero_heading}
+			imageLeftUrl={page[0].acf.hero_image_left.url}
+			imageLeftAlt={page[0].acf.hero_image_left.alt}
+			imageRightUrl={page[0].acf.hero_image_right.url}
+			imageRightAlt={page[0].acf.hero_image_right.alt}
+			buttonUrl={page[0].acf.hero_link.url}
+			buttonText={page[0].acf.hero_link.title}
+			buttonTarget={page[0].acf.hero_link.target}
+		/>
 		<TextCTA
-			text="Immerse your family in views of this unique part of the World Heritage Site, a favourite for nature lovers and outdoor explorers."
+			text={page[0].acf.text_cta_text}
 			button
-			buttonText="View all lodges"
-			buttonURL="#lakeview-lodges"
+			buttonText={page[0].acf.text_cta_button.title}
+			buttonURL={page[0].acf.text_cta_button.url}
 			styles="bg-white"
 		/>
 		<VideoSlider
-			heading="Outdoor explorers"
-			subheading="A day at the Lakeview lodge"
-			description="From the cozy lodge to the thrill of the lake, your adventure awaits on The Estate at the southern end of Lake Ullswater."
+			videoUrl={page[0].acf.video_slider_video_url}
+			videoThumbnailUrl={page[0].acf.video_slider_video_thumbnail.url}
+			videoThumbnailAlt={page[0].acf.video_slider_video_thumbnail.alt}
+			items={page[0].acf.video_slider_items}
 		/>
 		<Lodges
 			id="lakeview-lodges"

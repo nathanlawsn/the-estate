@@ -20,7 +20,7 @@ const Modal = ({ isOpen, onClose, url }) => {
   	);
 };
 
-const App = ({url}) => {
+const App = ({url, thumbnailUrl, thumbnailAlt}) => {
 	const [isModalOpen, setModalOpen] = useState(false);
 
 	const handleOpenModal = () => {
@@ -34,7 +34,7 @@ const App = ({url}) => {
 	return (
 	<>
 		<div className="aspect-[696/640] bg-black flex items-center justify-center relative">
-		    <img className="object-cover w-full h-full" src="src/images/video-placeholder.jpg" alt="A child having fun in water"></img>
+		    <img className="object-cover w-full h-full" src={thumbnailUrl} alt={thumbnailAlt}></img>
 			<div className='absolute cursor-pointer z-30 top-1/2 -translate-y-1/2 hover:scale-105 duration-500 ease-in-out transition-transform' onClick={handleOpenModal}>
 				<svg xmlns="http://www.w3.org/2000/svg" width="88" height="88" viewBox="0 0 88 88">
 				<g id="Group_24" data-name="Group 24" transform="translate(-446.25 -1652)">
