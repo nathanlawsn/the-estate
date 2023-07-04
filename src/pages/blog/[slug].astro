@@ -3,7 +3,7 @@ import Layout from "../../layouts/Layout.astro";
 import Container from "../../components/Container.astro";
 import { Picture } from "@astrojs/image/components";
 import RelatedArticles from "../../components/RelatedArticles.astro";
-import Share from "../../components/Share.astro";
+import Share from "../../components/Share.jsx";
 
 const { slug } = Astro.params;
 
@@ -44,7 +44,7 @@ export async function getStaticPaths() {
                             </h1>
                         </div>
 
-                        <Share />
+                        <Share client:visible />
                     </div>
                 </Container>
             </div>
