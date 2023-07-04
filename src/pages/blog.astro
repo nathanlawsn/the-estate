@@ -3,6 +3,9 @@ import { Icon } from "astro-icon";
 import Layout from "../layouts/Layout.astro";
 import Container from "../components/Container.astro";
 import Card from "../components/Card.astro";
+
+let res = await fetch("http://theestate.cargo/wp-json/wp/v2/posts");
+let posts = await res.json();
 ---
 
 <Layout title="Blog | The Estate" nav>
@@ -33,22 +36,21 @@ import Card from "../components/Card.astro";
             </div>
 
             <div class="flex flex-col gap-20">
-                <div class="grid gap-10 md:gap-0 md:grid-cols-2 lg:grid-cols-3">
-                    <Card />
-                    <Card />
-                    <Card />
-                </div>
-
-                <div class="grid gap-10 md:gap-0 md:grid-cols-2 lg:grid-cols-3">
-                    <Card />
-                    <Card />
-                    <Card />
-                </div>
-
-                <div class="grid gap-10 md:gap-0 md:grid-cols-2 lg:grid-cols-3">
-                    <Card />
-                    <Card />
-                    <Card />
+                <div
+                    class="grid gap-10 md:gap-x-0 md:gap-y-20 md:grid-cols-2 lg:grid-cols-3"
+                >
+                    {
+                        posts.map((post) => (
+                            <Card
+                                title={post.title.rendered}
+                                text={post.acf.short_description}
+                                category={post.acf.category[0].name}
+                                imageUrl={post.acf.image.url}
+                                imageAlt={post.acf.image.alt}
+                                slug={post.slug}
+                            />
+                        ))
+                    }
                 </div>
 
                 <a

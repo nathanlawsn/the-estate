@@ -1,0 +1,121 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Container from "../../components/Container.astro";
+import { Picture } from "@astrojs/image/components";
+import RelatedArticles from "../../components/RelatedArticles.astro";
+import Share from "../../components/Share.astro";
+
+const { slug } = Astro.params;
+
+let res = await fetch(
+    `http://theestate.cargo/wp-json/wp/v2/posts?slug=${slug}`
+);
+let [post] = await res.json();
+
+// The getStaticPaths() is required for static Astro sites.
+// If using SSR, you will not need this function.
+export async function getStaticPaths() {
+    let data = await fetch("http://theestate.cargo/wp-json/wp/v2/posts");
+    let posts = await data.json();
+
+    return posts.map((post) => ({
+        params: { slug: post.slug },
+        props: { post: post },
+    }));
+}
+---
+
+<Layout title={`${post.title.rendered} | The Estate`} nav>
+    <main>
+        <section>
+            <div class="bg-grey-light">
+                <Container>
+                    <div
+                        class="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-10 lg:min-h-[15.25rem] py-14"
+                    >
+                        <div>
+                            <div class="font-medium text-xl mb-3.5">
+                                {post.acf.category[0].name}
+                            </div>
+                            <h1
+                                class="font-medium text-4xl md:text-[3.125rem]/[3.625rem] max-w-4xl [text-wrap:balance]"
+                            >
+                                {post.title.rendered}
+                            </h1>
+                        </div>
+
+                        <Share />
+                    </div>
+                </Container>
+            </div>
+
+            <div>
+                <Picture
+                    src={post.acf.image.url}
+                    alt={post.acf.image.alt}
+                    widths={[768, 1024, 1600]}
+                    aspectRatio="1600:642"
+                    sizes="(max-width: 768px) 100vw, 1024px, 1600px"
+                    fit="cover"
+                    class="w-full h-full object-cover"
+                />
+            </div>
+        </section>
+
+        <section class="py-16 md:py-24 md:pb-36 bg-white">
+            <Container>
+                <div
+                    class="grid lg:grid-cols-[minmax(0,_auto)_minmax(20.75rem,_20.75rem)] gap-16 xl:gap-36"
+                >
+                    <div class="max-w-2xl lg:max-w-none">
+                        <div class="content" set:html={post.content.rendered} />
+                    </div>
+
+                    <div class="max-w-2xl lg:max-w-none">
+                        <div class="bg-grey-light px-8 py-9">
+                            <h2 class="font-medium text-3xl mb-8">
+                                St Patrick’s boat landing
+                            </h2>
+                            <p class="font-medium text-base">
+                                Explore breathtaking views of Ullswater at your
+                                own pace with the hire of one of our self drive
+                                motor boats, rowing boats or canoes.
+                            </p>
+                            <p class="font-medium text-base m-0">
+                                Whether you’re seeking adventure or a piece of
+                                tranquility, we have options for all!
+                            </p>
+                        </div>
+                        <a
+                            class="bg-primary-orange hover:bg-primary-purple transition-colors duration-500 ease-in-out text-white flex items-center gap-5 justify-between sm:gap-[4.75rem] px-6 py-7 w-full group"
+                            href="#"
+                        >
+                            <span class="text-3xl">Book online</span>
+                            <span
+                                class="block w-4 h-4 group-hover:rotate-45 duration-500 ease-in-out"
+                            >
+                                <svg
+                                    viewBox="0 0 17.978 17.978"
+                                    astro-icon="arrow"
+                                    ><g
+                                        fill="none"
+                                        stroke="currentColor"
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                        stroke-width="2"
+                                        ><path
+                                            d="m1.414 16.564 15.15-15.15"
+                                            data-name="Line 1"></path><path
+                                            d="M1.414 1.414h15.18v15.18"
+                                            data-name="Path 1"></path></g
+                                    ></svg
+                                >
+                            </span>
+                        </a>
+                    </div>
+                </div>
+            </Container>
+        </section>
+        <!-- <RelatedArticles /> -->
+    </main>
+</Layout>

@@ -10,7 +10,9 @@ const { nav } = Astro.props;
 <header class="bg-white py-[1.875rem]">
     <Container>
         <div class="flex items-center justify-between gap-4">
-            <Logo />
+            <a href="/">
+                <Logo />
+            </a>
             <div class="flex justify-end gap-20">
                 {nav && <Navigation />}
                 <Button

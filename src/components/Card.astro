@@ -2,39 +2,34 @@
 import { Icon } from "astro-icon";
 import { Picture } from "@astrojs/image/components";
 
-import image from "../images/thumbnail-post-001.jpg";
-
-// const { name, description, sleeps, image } = Astro.props;
+const { title, text, imageUrl, imageAlt, category, slug } = Astro.props;
 ---
 
-<div class="overflow-hidden relative group cursor-pointer bg-white">
+<a
+	href={`/blog/${slug}`}
+	class="overflow-hidden relative group cursor-pointer bg-white"
+>
 	<div class="relative">
 		<Picture
-			src={image}
+			src={imageUrl}
 			widths={[768, 1024]}
 			aspectRatio="473:549"
 			sizes="(max-width: 768px) 100vw, 1024px"
-			alt="Placeholder"
+			alt={imageAlt}
 		/>
 		<div
 			class="flex items-center gap-2 bg-white rounded-[100px] absolute top-7 right-7 h-11 px-4"
 		>
-			<span class="font-medium text-[0.938rem]">Explore</span>
+			<span class="font-medium text-[0.938rem]">{category}</span>
 		</div>
 
 		<div
-			class="bg-white absolute bottom-0 z-10 w-full translate-y-[calc(100%-5.75rem)] group-hover:translate-y-0 duration-500 ease-in-out"
+			class="bg-white absolute bottom-0 z-10 w-full translate-y-[calc(100%-6.5rem)] group-hover:translate-y-0 duration-500 ease-in-out px-6 py-7"
 		>
-			<div class="px-6 py-7">
-				<p class="text-3xl">Sailing across Lake Ullswater</p>
-				<div>
-					<p class="text-base text-[#999999] m-0">
-						You will be greeted from floor to ceiling with a view of
-						lake and fells, giving you the perfect setting to your
-						stay.
-					</p>
-				</div>
-			</div>
+			<h3 class="text-3xl">{title}</h3>
+			<p class="text-base text-[#999999] m-0 mt-9 line-clamp-2">
+				{text}
+			</p>
 		</div>
 	</div>
 	<div class="flex items-center gap-4 relative z-20 bg-white px-6 py-7">
@@ -45,4 +40,4 @@ import image from "../images/thumbnail-post-001.jpg";
 			<Icon name="arrow" />
 		</span>
 	</div>
-</div>
+</a>
