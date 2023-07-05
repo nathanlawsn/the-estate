@@ -5,7 +5,7 @@ import "swiper/css/navigation";
 
 import { Autoplay, Navigation } from "swiper";
 
-export default function ImageCarouselSwiper() {
+export default function ImageCarouselSwiper({ items }) {
   return (
     <Swiper
         className=""
@@ -16,19 +16,12 @@ export default function ImageCarouselSwiper() {
         navigation
         modules={[Autoplay, Navigation]}
         speed={500}
-    > 
-        <SwiperSlide>
-            <img src="/images/lodge-carousel-001.jpg" alt="Placeholder" />
+    >
+      {items.map((item) => (
+        <SwiperSlide key={item.image.id}>
+            <img src={item.image.url} alt={item.image.alt} />
         </SwiperSlide>
-        <SwiperSlide>
-            <img src="/images/lodge-carousel-001.jpg" alt="Placeholder" />
-        </SwiperSlide>
-        <SwiperSlide>
-            <img src="/images/lodge-carousel-001.jpg" alt="Placeholder" />
-        </SwiperSlide>
-        <SwiperSlide>
-            <img src="/images/lodge-carousel-001.jpg" alt="Placeholder" />
-        </SwiperSlide>
+      ))}
     </Swiper>
   );
 }

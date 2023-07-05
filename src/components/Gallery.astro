@@ -2,7 +2,7 @@
 import Container from "./Container.astro";
 import { Picture } from "@astrojs/image/components";
 
-import gallery001 from "../images/lodge-gallery-001.jpg";
+const { items } = Astro.props;
 ---
 
 <section class="py-20">
@@ -13,12 +13,12 @@ import gallery001 from "../images/lodge-gallery-001.jpg";
                 class="bg-orange-300 md:col-span-4 md:row-span-3 aspect-[831/554] overflow-hidden"
             >
                 <Picture
-                    src={gallery001}
+                    src={items[0].image.url}
                     widths={[768, 1024]}
                     aspectRatio="831:554"
                     fit="cover"
                     sizes="(max-width: 768px) 100vw, 1024px"
-                    alt="Lodge interior"
+                    alt={items[0].image.alt}
                     class="hover:scale-105 duration-1000 ease-in-out"
                 />
             </div>
@@ -26,12 +26,12 @@ import gallery001 from "../images/lodge-gallery-001.jpg";
                 class="bg-orange-400 md:col-span-2 md:row-span-2 md:col-start-5 aspect-[577/385] overflow-hidden"
             >
                 <Picture
-                    src={gallery001}
+                    src={items[1].image.url}
                     widths={[768, 1024]}
                     aspectRatio="577:385"
                     fit="cover"
                     sizes="(max-width: 768px) 100vw, 1024px"
-                    alt="Lodge interior"
+                    alt={items[1].image.alt}
                     class="hover:scale-105 duration-1000 ease-in-out"
                 />
             </div>
@@ -39,12 +39,12 @@ import gallery001 from "../images/lodge-gallery-001.jpg";
                 class="bg-orange-500 md:col-span-2 md:row-span-5 md:col-start-5 md:row-start-3 aspect-[577/766] overflow-hidden"
             >
                 <Picture
-                    src={gallery001}
+                    src={items[2].image.url}
                     widths={[768, 1024]}
                     aspectRatio="577:766"
                     fit="cover"
                     sizes="(max-width: 768px) 100vw, 1024px"
-                    alt="Lodge interior"
+                    alt={items[2].image.alt}
                     class="hover:scale-105 duration-1000 ease-in-out"
                 />
             </div>
@@ -52,12 +52,12 @@ import gallery001 from "../images/lodge-gallery-001.jpg";
                 class="bg-orange-600 md:col-span-2 md:row-span-4 md:row-start-4 aspect-[401/597] overflow-hidden"
             >
                 <Picture
-                    src={gallery001}
+                    src={items[3].image.url}
                     widths={[940]}
                     aspectRatio="401:597"
                     fit="cover"
                     sizes="(max-width: 768px) 100vw, 1024px"
-                    alt="Lodge interior"
+                    alt={items[3].image.alt}
                     class="hover:scale-105 duration-1000 ease-in-out"
                 />
             </div>
@@ -65,12 +65,12 @@ import gallery001 from "../images/lodge-gallery-001.jpg";
                 class="bg-orange-700 md:col-span-2 md:row-span-4 md:col-start-3 md:row-start-4 aspect-[401/597] overflow-hidden"
             >
                 <Picture
-                    src={gallery001}
+                    src={items[4].image.url}
                     widths={[940]}
                     aspectRatio="401:597"
                     fit="cover"
                     sizes="(max-width: 768px) 100vw, 1024px"
-                    alt="Lodge interior"
+                    alt={items[4].image.alt}
                     class="hover:scale-105 duration-1000 ease-in-out"
                 />
             </div>

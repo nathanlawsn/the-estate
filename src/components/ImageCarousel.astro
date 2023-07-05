@@ -1,7 +1,9 @@
 ---
 import ImageCarouselSwiper from "./ImageCarouselSwiper.jsx";
+
+const { items } = Astro.props;
 ---
 
 <div>
-    <ImageCarouselSwiper client:visible />
+    <ImageCarouselSwiper items={items} client:visible />
 </div>

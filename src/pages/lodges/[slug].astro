@@ -1,18 +1,40 @@
 ---
-import Gallery from "../components/Gallery.astro";
-import Quote from "../components/Quote.astro";
-import ImageCTAGrid from "../components/ImageCTAGrid.astro";
-import VideoFullScreen from "../components/VideoFullScreen.astro";
-import TextCTA from "../components/TextCTA.astro";
-import Layout from "../layouts/Layout.astro";
-import LodgeDetails from "../components/LodgeDetails.astro";
+import Gallery from "../../components/Gallery.astro";
+import Quote from "../../components/Quote.astro";
+import ImageCTAGrid from "../../components/ImageCTAGrid.astro";
+import VideoFullScreen from "../../components/VideoFullScreen.astro";
+import TextCTA from "../../components/TextCTA.astro";
+import Layout from "../../layouts/Layout.astro";
+import LodgeDetails from "../../components/LodgeDetails.astro";
 import { Icon } from "astro-icon";
+
+const { slug } = Astro.params;
+
+let res = await fetch(
+    `http://theestate.cargo/wp-json/wp/v2/lodges?slug=${slug}`
+);
+let [post] = await res.json();
+
+// The getStaticPaths() is required for static Astro sites.
+// If using SSR, you will not need this function.
+export async function getStaticPaths() {
+    let data = await fetch("http://theestate.cargo/wp-json/wp/v2/lodges");
+    let posts = await data.json();
+
+    return posts.map((post) => ({
+        params: { slug: post.slug },
+        props: { post: post },
+    }));
+}
 ---
 
-<Layout title="The Estate" nav>
+<Layout title={`${post.title.rendered} | The Estate`} nav>
     <main>
         <section class="h-[85dvh] flex flex-col">
-            <VideoFullScreen />
+            <VideoFullScreen
+                image={post.acf.hero_image}
+                videoUrl={post.acf.video_url}
+            />
             <div>
                 <div class="grid lg:grid-cols-2">
                     <div
@@ -20,14 +42,14 @@ import { Icon } from "astro-icon";
                         data-push="left"
                     >
                         <h1 class="text-3xl font-medium">
-                            Lakeside Lodge - Kestrel
+                            {post.title.rendered}
                         </h1>
                         <div class="flex items-center gap-2">
                             <span class="block w-5 h-4">
                                 <Icon name="bed" />
                             </span>
                             <span class="font-medium text-[0.938rem]"
-                                >Up to 6 people</span
+                                >Up to {post.acf.sleeps} people</span
                             >
                         </div>
                     </div>
@@ -35,7 +57,7 @@ import { Icon } from "astro-icon";
                     <div class="group bg-orange-400" data-push="right">
                         <a
                             class="bg-orange-400 text-white flex items-center gap-5 justify-between sm:gap-[4.75rem] px-5 md:px-11 py-3 min-h-[5rem] sm:min-h-[6.25rem] w-full group-hover:bg-primary-purple transition-colors duration-500 ease-in-out"
-                            href="https://patterdalehallestate.anytimebooking.eu/place_booking/#forward"
+                            href={post.acf.booking_url}
                         >
                             <span class="text-2xl sm:text-[2.125rem]"
                                 >Book your stay</span
@@ -50,11 +72,14 @@ import { Icon } from "astro-icon";
                 </div>
             </div>
         </section>
-        <TextCTA
-            text="You will be greeted from floor to ceiling with a view of lake and fells, giving you the perfect setting to your stay. Kestrel offers the perfect balance of comfort and family life in one of the most beautiful parts of England."
+        <TextCTA text={post.acf.introduction} />
+        <LodgeDetails
+            tabs={post.acf.tabs_tabs}
+            description={post.acf.short_description}
+            carousel={post.acf.image_carousel_image_carousel}
+            url={post.acf.booking_url}
         />
-        <LodgeDetails />
-        <Gallery />
+        <Gallery items={post.acf.image_gallery} />
         <Quote
             quote="“What a fabulous place to stay for walking and cycling in the Ullswater lake area. Chalets are well equipped, comfortable and very homely, location is great, but what really makes it stand out are the staff”"
             name="Sarah - Coventry"
