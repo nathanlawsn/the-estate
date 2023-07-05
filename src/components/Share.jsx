@@ -1,14 +1,12 @@
 
-import { TwitterShareButton, FacebookShareButton } from "react-share";
+import { TwitterShareButton, FacebookShareButton } from "next-share";
 
-const shareUrl = "https://the-estate.co.uk/";
-
-export default function Share() {
+export default function Share({url, title}) {
     return (
         <div class="flex items-center gap-5">
             <span>Share via</span>
             <div class="flex items-center gap-2.5">
-                <TwitterShareButton url={shareUrl}>
+                <TwitterShareButton url={url} title={title} blankTarget>
                     <span class="block w-8 h-7 text-primary-orange hover:text-primary-purple duration-500 ease-in-out">
                         <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30">
                             <g id="Group_43" data-name="Group 43" transform="translate(-144.27 -713.996)">
@@ -21,7 +19,7 @@ export default function Share() {
                         </svg>
                     </span>
                 </TwitterShareButton>
-                <FacebookShareButton url={shareUrl} quote="TEST" hashtag="#test">
+                <FacebookShareButton url={url} quote={title} blankTarget>
                     <span class="block w-8 h-7 text-primary-orange hover:text-primary-purple duration-500 ease-in-out">
                         <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30">
                             <g id="Group_44" data-name="Group 44" transform="translate(-184.232 -713.996)">

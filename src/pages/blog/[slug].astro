@@ -44,7 +44,11 @@ export async function getStaticPaths() {
                             </h1>
                         </div>
 
-                        <Share client:visible />
+                        <Share
+                            title={post.title.rendered}
+                            url={post.link}
+                            client:visible
+                        />
                     </div>
                 </Container>
             </div>
