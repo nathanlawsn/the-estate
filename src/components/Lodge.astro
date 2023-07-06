@@ -2,28 +2,35 @@
 import { Icon } from "astro-icon";
 import { Picture } from "@astrojs/image/components";
 
-const { name, description, sleeps, image, interior, url } = Astro.props;
+const { id } = Astro.props;
+
+let res = await fetch(`http://theestate.cargo/wp-json/wp/v2/lodges?id=${id}`);
+let [post] = await res.json();
 ---
 
 <div class="overflow-hidden relative group cursor-pointer bg-white">
 	<div class="relative">
 		<Picture
-			src={image}
+			src={post.acf.thumbnail_image.url}
 			widths={[480]}
 			aspectRatio="483:659"
 			sizes="(max-width: 480px) 100vw, 1024px"
-			alt={name}
+			alt={post.acf.thumbnail_image.alt}
 			fit="cover"
 			class="top-0 left-0 opacity-100 group-hover:opacity-0 duration-500 ease-in-out"
 		/>
-		<Picture
-			src={interior}
-			widths={[480]}
-			aspectRatio="483:483"
-			sizes="(max-width: 480px) 100vw, 1024px"
-			alt={name}
-			class="absolute top-0 left-0 opacity-0 group-hover:opacity-100 duration-500 ease-in-out"
-		/>
+		{
+			post.acf.thumbnail_hover_image && (
+				<Picture
+					src={post.acf.thumbnail_hover_image.url}
+					widths={[480]}
+					aspectRatio="483:483"
+					sizes="(max-width: 480px) 100vw, 1024px"
+					alt={post.acf.thumbnail_hover_image.alt}
+					class="absolute top-0 left-0 opacity-0 group-hover:opacity-100 duration-500 ease-in-out"
+				/>
+			)
+		}
 	</div>
 	<div
 		class="flex items-center gap-2 bg-white/90 rounded-[100px] absolute top-7 right-7 h-11 px-4"
@@ -31,14 +38,16 @@ const { name, description, sleeps, image, interior, url } = Astro.props;
 		<span class="block w-5 h-4">
 			<Icon name="bed" />
 		</span>
-		<span class="font-medium text-[0.938rem]">Up to {sleeps} people</span>
+		<span class="font-medium text-[0.938rem]"
+			>Up to {post.acf.sleeps} people</span
+		>
 	</div>
 
 	<div
 		class="bg-white absolute bottom-0 w-full translate-y-[calc(100%-5.75rem)] group-hover:translate-y-0 duration-500 ease-in-out"
 	>
 		<div class="flex items-center justify-between gap-5 px-6 py-7">
-			<p class="text-3xl m-0">{name}</p>
+			<p class="text-3xl m-0">{post.title.rendered}</p>
 			<span class="flex items-center gap-4">
 				<span class="text-xl">Details</span>
 				<span class="block w-4 h-4">
@@ -48,11 +57,13 @@ const { name, description, sleeps, image, interior, url } = Astro.props;
 		</div>
 		<div>
 			<div class="px-6 pb-7">
-				<p class="text-base text-[#999999] m-0">{description}</p>
+				<p class="text-base text-[#999999] m-0">
+					{post.acf.introduction}
+				</p>
 			</div>
 			<a
 				class="bg-orange-400 text-white flex items-center gap-5 justify-between sm:gap-[4.75rem] px-6 py-7 w-full"
-				href={url}
+				href=`lodges/${post.slug}`
 			>
 				<span class="text-3xl">Book now</span>
 				<span

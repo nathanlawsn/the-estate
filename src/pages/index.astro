@@ -11,7 +11,6 @@ let res = await fetch(
 	"http://theestate.cargo/wp-json/wp/v2/pages?slug=homepage"
 );
 let page = await res.json();
-// let acf = page[0].acf
 
 const items = [
 	[
@@ -93,18 +92,12 @@ const items2 = [
 			videoThumbnailAlt={page[0].acf.video_slider_video_thumbnail.alt}
 			items={page[0].acf.video_slider_items}
 		/>
-		<Lodges
-			id="lakeview-lodges"
-			heading="Lakeview lodges"
-			description="Our premium lodges set on lakeside fields with exceptional views of Lake Ullswater and the fells that surround us. The properties benefit from large open living spaces with high end fixtures and fittings to make your stay comfortable. Set in lakeside fields, you will be immersed in views both inside and out of these brand new properties. Each have large private decks overlooking the lake and fells."
-			items={items}
-		/>
-		<Lodges
-			id="pine-lodges"
-			heading="Pine lodges"
-			description="More spacious than our chalets, lodges are a great choice for large family groups. The 3 bedroom format works well for accommodating extended family,  friends, or children of different age groups. Benefitting from their proximity to Waterfall Woods, lodge guests frequently report badger and red squirrel sightings from their windows and verandas. And with red deer and over 50 different species of birds regularly sighted, the accommodation is a delight for nature lovers."
-			items={items2}
-		/>
+
+		{
+			page[0].acf.featured_accommodation && (
+				<Lodges items={page[0].acf.featured_accommodation} />
+			)
+		}
 		<Quote
 			quote="“What a fabulous place to stay for walking and cycling in the Ullswater lake area. Chalets are well equipped, comfortable and very homely, location is great, but what really makes it stand out are the staff”"
 			name="Sarah - Coventry"
