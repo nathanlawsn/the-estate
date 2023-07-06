@@ -6,10 +6,8 @@ import Navigation from "./Navigation.astro";
 
 const { nav } = Astro.props;
 
-let res = await fetch(
-    "http://theestate.cargo/wp-json/menus/v1/menus/primary-navigation"
-);
-let menu = await res.json();
+let res = await fetch("http://theestate.cargo/wp-json/options/all");
+let page = await res.json();
 ---
 
 <header class="bg-white py-[1.875rem]">
@@ -19,12 +17,8 @@ let menu = await res.json();
                 <Logo />
             </a>
             <div class="flex justify-end gap-20">
-                {nav && <Navigation items={menu.items} />}
-                <Button
-                    text="Book now"
-                    url="https://patterdalehallestate.anytimebooking.eu/place_booking/#forward"
-                    arrow
-                />
+                {nav && <Navigation />}
+                <Button text="Book now" url={page.book_now_url} arrow />
             </div>
         </div>
     </Container>

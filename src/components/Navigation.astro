@@ -1,10 +1,13 @@
 ---
-const { items } = Astro.props;
+let res = await fetch(
+    "http://theestate.cargo/wp-json/menus/v1/menus/primary-navigation"
+);
+let menu = await res.json();
 ---
 
 <ul class="hidden lg:flex items-center gap-8 font-medium text-lg">
     {
-        items.map((item) => (
+        menu.items.map((item) => (
             <li>
                 <a class="hover:underline" href={item.url}>
                     {item.title}
