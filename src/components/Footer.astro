@@ -1,6 +1,10 @@
 ---
 import Container from "./Container.astro";
+import FooterNavigation from "./FooterNavigation.astro";
 import { Icon } from "astro-icon";
+
+let res = await fetch("http://theestate.cargo/wp-json/options/all");
+let page = await res.json();
 ---
 
 <footer>
@@ -11,87 +15,20 @@ import { Icon } from "astro-icon";
 			>
 				<div class="flex flex-col gap-10 justify-between">
 					<p class="text-2xl md:text-3xl/[2.5rem] m-0">
-						An estate full of adventure. Come and explore everything
-						we have to offer, from our amazing landscape to our
-						preserved beauty wildlife a place for everyone and thing
-						to thrive.
+						{page.text}
 					</p>
 
 					<div class="flex flex-col gap-4">
-						<p class="m-0">Tel: +44 (0) 17684 82308</p>
-						<p class="m-0">Email: mail@the-estate.co.uk</p>
+						<p class="m-0">Tel: {page.general_phone_number}</p>
+						<p class="m-0">Email: {page.general_email_address}</p>
 						<p class="m-0">
-							Address: The Estate, Glenridding, Penrith CA11 0PJ
+							Address: {page.company_address[0].address_line}
 						</p>
 					</div>
 				</div>
 
 				<div class="flex gap-20">
-					<div>
-						<h3 class="mb-9 text-2xl md:text-3xl font-medium">
-							Sitemap
-						</h3>
-						<ul
-							class="text-[0.938rem] font-medium flex flex-col gap-2"
-						>
-							<li>
-								<a
-									class="hover:underline"
-									href="https://the-estate.co.uk/availability-and-pricing/"
-									>Accommodation</a
-								>
-							</li>
-							<li>
-								<a
-									class="hover:underline"
-									href="https://the-estate.co.uk/reviews/"
-									>Reviews</a
-								>
-							</li>
-							<li>
-								<a
-									class="hover:underline"
-									href="https://the-estate.co.uk/volunteer/"
-									>Volunteer</a
-								>
-							</li>
-							<li>
-								<a
-									class="hover:underline"
-									href="https://the-estate.co.uk/news/"
-									>About</a
-								>
-							</li>
-							<li>
-								<a
-									class="hover:underline"
-									href="https://patterdalehallestate.anytimebooking.eu/my_account/"
-									>My Account</a
-								>
-							</li>
-							<li>
-								<a
-									class="hover:underline"
-									href="https://the-estate.co.uk/privacy-policy/"
-									>Privacy policy</a
-								>
-							</li>
-							<li>
-								<a
-									class="hover:underline"
-									href="https://the-estate.co.uk/terms-conditions/"
-									>Terms & Conditions</a
-								>
-							</li>
-							<li>
-								<a
-									class="hover:underline"
-									href="https://the-estate.co.uk/cookie-policy/"
-									>Cookie policy</a
-								>
-							</li>
-						</ul>
-					</div>
+					<FooterNavigation />
 
 					<div>
 						<h3 class="mb-9 text-2xl md:text-3xl font-medium">
@@ -100,23 +37,44 @@ import { Icon } from "astro-icon";
 						<ul
 							class="text-[0.938rem] font-medium flex flex-col gap-2"
 						>
-							<li>
-								<a
-									class="hover:underline"
-									href="https://www.facebook.com/TheEstatePatterdale/"
-									target="_blank">Facebook</a
-								>
-							</li>
-							<li>
-								<a
-									class="hover:underline"
-									href="https://www.instagram.com/the_estate_patterdale"
-									target="_blank">Instagram</a
-								>
-							</li>
-							<li>
-								<a class="hover:underline" href="#">TikTok</a>
-							</li>
+							{
+								page.company_facebook_link && (
+									<li>
+										<a
+											class="hover:underline"
+											href={page.company_facebook_link}
+											target="_blank"
+										>
+											Facebook
+										</a>
+									</li>
+								)
+							}
+							{
+								page.company_instagram_link && (
+									<li>
+										<a
+											class="hover:underline"
+											href={page.company_instagram_link}
+											target="_blank"
+										>
+											Instagram
+										</a>
+									</li>
+								)
+							}
+							{
+								page.company_tiktok_link && (
+									<li>
+										<a
+											class="hover:underline"
+											href={page.company_tiktok_link}
+										>
+											TikTok
+										</a>
+									</li>
+								)
+							}
 						</ul>
 					</div>
 				</div>
@@ -133,10 +91,7 @@ import { Icon } from "astro-icon";
 	<div class="py-6">
 		<Container>
 			<p class="font-medium text-[#999999] text-[0.938rem]">
-				The Estate reg. company no. 02768297 is a wholely owned
-				subsidiary of YMCA North Tyneside. (Charity No: 1011495,
-				Provider of Social Housing No: 4793, Ofsted Registration:
-				EY555165)
+				{page.legal}
 			</p>
 		</Container>
 	</div>
