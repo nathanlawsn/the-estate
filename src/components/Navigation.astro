@@ -1,10 +1,15 @@
 ---
+const { items } = Astro.props;
 ---
 
 <ul class="hidden lg:flex items-center gap-8 font-medium text-lg">
-    <li><a class="hover:underline" href="/">Home</a></li>
-    <li><a class="hover:underline" href="">Reviews</a></li>
-    <li><a class="hover:underline" href="">Volunteer</a></li>
-    <li><a class="hover:underline" href="">About</a></li>
-    <li><a class="hover:underline" href="">My Account</a></li>
+    {
+        items.map((item) => (
+            <li>
+                <a class="hover:underline" href={item.url}>
+                    {item.title}
+                </a>
+            </li>
+        ))
+    }
 </ul>
