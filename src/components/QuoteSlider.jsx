@@ -5,7 +5,7 @@ import "swiper/css/pagination";
 
 import { Autoplay, Pagination } from "swiper";
 
-export default function QuoteSlider({quote, name}) {
+export default function QuoteSlider({items}) {
   return (
     <Swiper
         className="!py-24 md:!py-48"
@@ -19,36 +19,18 @@ export default function QuoteSlider({quote, name}) {
         modules={[Autoplay, Pagination]}
         speed={500}
     >
+    {items.testimonial.map((item) => (
         <SwiperSlide>
             <figure className="text-center max-w-[60rem] mx-auto px-8">
                 <blockquote>
-                    <p className="text-2xl sm:text-3xl/[2.5rem] m-0">{quote}</p>
+                    <p className="text-2xl sm:text-3xl/[2.5rem] m-0">{item.quote}</p>
                 </blockquote>
                 <figcaption className="mt-8">
-                    <p className="text-primary-orange text-2xl sm:text-3xl/[2.5rem] m-0">{name}</p>
+                    <p className="text-primary-orange text-2xl sm:text-3xl/[2.5rem] m-0">{item.name}</p>
                 </figcaption>
             </figure>
         </SwiperSlide>
-        <SwiperSlide>
-            <figure className="text-center max-w-[60rem] mx-auto px-8">
-                <blockquote>
-                    <p className="text-2xl sm:text-3xl/[2.5rem] m-0">“What a fabulous place to stay for walking and cycling in the Ullswater lake area. Chalets are well equipped, comfortable and very homely, location is great, but what really makes it stand out are the staff”</p>
-                </blockquote>
-                <figcaption class="mt-8">
-                    <p className="text-primary-orange text-2xl sm:text-3xl/[2.5rem] m-0">Sarah - Coventry</p>
-                </figcaption>
-            </figure>
-        </SwiperSlide>
-        <SwiperSlide>
-            <figure className="text-center max-w-[60rem] mx-auto px-8">
-                <blockquote>
-                    <p className="text-2xl sm:text-3xl/[2.5rem] m-0">“What a fabulous place to stay for walking and cycling in the Ullswater lake area. Chalets are well equipped, comfortable and very homely, location is great, but what really makes it stand out are the staff”</p>
-                </blockquote>
-                <figcaption class="mt-8">
-                    <p className="text-primary-orange text-2xl sm:text-3xl/[2.5rem] m-0">Sarah - Coventry</p>
-                </figcaption>
-            </figure>
-        </SwiperSlide>
+    ))}
     </Swiper>
   );
 }
