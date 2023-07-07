@@ -22,8 +22,8 @@ export default function VideoSwiper({ items }) {
             speed={500}
         >
             {
-                items.map((slide) => (
-                    <SwiperSlide key={slide.slide_heading}>
+                items.map((slide, i) => (
+                    <SwiperSlide key={i}>
                         <div className="flex flex-col mb-8 lg:m-0">
                             <div className="text-center max-w-[30rem] mx-auto lg:py-24">
                                 <div className="mb-4 text-lg font-medium">{slide.slide_subheading}</div>
@@ -43,8 +43,8 @@ export default function VideoSwiper({ items }) {
             <div
                 className="flex items-center justify-between gap-4 font-medium text-[0.938rem]"
             >
-                {items.map((slide) => (
-                    <div>{slide.slide_heading}</div>
+                {items.map((slide, i) => (
+                    <div key={i}>{slide.slide_heading}</div>
                 ))}
             </div>
         </div>

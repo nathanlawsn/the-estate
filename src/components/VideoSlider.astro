@@ -18,7 +18,7 @@ const { videoUrl, videoThumbnailUrl, videoThumbnailAlt, items } = Astro.props;
 				url={videoUrl}
 				thumbnailUrl={videoThumbnailUrl}
 				thumbnailAlt={videoThumbnailAlt}
-				client:visible
+				client:load
 			/>
 
 			<VideoSwiper client:visible items={items} />
