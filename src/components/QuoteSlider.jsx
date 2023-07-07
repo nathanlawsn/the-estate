@@ -19,8 +19,8 @@ export default function QuoteSlider({items}) {
         modules={[Autoplay, Pagination]}
         speed={500}
     >
-    {items.testimonial.map((item) => (
-        <SwiperSlide>
+    {items.testimonial.map((item, i) => (
+        <SwiperSlide key={i}>
             <figure className="text-center max-w-[60rem] mx-auto px-8">
                 <blockquote>
                     <p className="text-2xl sm:text-3xl/[2.5rem] m-0">{item.quote}</p>
