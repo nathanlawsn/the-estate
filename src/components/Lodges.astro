@@ -38,8 +38,8 @@ const { items } = Astro.props;
 				</div>
 
 				<div class="mt-10 md:mt-20 grid gap-10 md:gap-0 md:grid-cols-2 lg:grid-cols-3">
-					{item.group_accommodation.map((item) => (
-						<Lodge id={item.id} />
+					{item.group_accommodation.map((item, i) => (
+						<Lodge id={item.property.ID} key={i} />
 					))}
 				</div>
 			</Container>

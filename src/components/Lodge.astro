@@ -4,7 +4,9 @@ import { Picture } from "@astrojs/image/components";
 
 const { id } = Astro.props;
 
-let res = await fetch(`http://theestate.cargo/wp-json/wp/v2/lodges?id=${id}`);
+let res = await fetch(
+	`http://theestate.cargo/wp-json/wp/v2/lodges?include=${id}`
+);
 let [post] = await res.json();
 ---
 
