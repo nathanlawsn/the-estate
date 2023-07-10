@@ -1,15 +1,33 @@
 ---
 import Container from "./Container.astro";
 import Card from "./Card.astro";
+
+const { categoryId } = Astro.props;
+
+let res = await fetch(
+    `http://theestate.cargo/wp-json/wp/v2/posts?categories=${categoryId}`
+);
+let items = await res.json();
 ---
 
 <section class="bg-grey-light py-24">
     <Container>
         <h2 class="font-medium text-3xl mb-9">Related articles</h2>
         <div class="grid gap-10 md:gap-0 md:grid-cols-2 lg:grid-cols-3">
-            <Card />
-            <Card />
-            <Card />
+            {
+                items
+                    .slice(0, 3)
+                    .map((post) => (
+                        <Card
+                            title={post.title.rendered}
+                            text={post.acf.short_description}
+                            category={post.acf.category[0].name}
+                            imageUrl={post.acf.image.url}
+                            imageAlt={post.acf.image.alt}
+                            slug={post.slug}
+                        />
+                    ))
+            }
         </div>
     </Container>
 </section>
