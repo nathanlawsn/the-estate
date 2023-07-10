@@ -15,8 +15,10 @@ let posts = await data.json();
                 href={`/blog/archive/${category.slug}`}
                 class="bg-white p-6 flex justify-between items-center cursor-pointer group"
             >
-                <label class="font-medium text-3xl">{category.name}</label>
-                <div class="h-4 w-4 group-hover:rotate-45 duration-500 ease-in-out">
+                <label class="font-medium text-3xl cursor-pointer">
+                    {category.name}
+                </label>
+                <div class="h-4 w-4 group-hover:rotate-45 duration-500 ease-in-out cursor-pointer">
                     <Icon name="arrow" />
                 </div>
             </a>

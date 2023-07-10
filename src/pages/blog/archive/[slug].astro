@@ -23,6 +23,13 @@ export async function getStaticPaths() {
         props: { post: post },
     }));
 }
+
+let categoryID = post.id;
+
+let filteredData = await fetch(
+    `http://theestate.cargo/wp-json/wp/v2/posts?categories=${categoryID}`
+);
+let items = await filteredData.json();
 ---
 
 <Layout title="Blog | The Estate" nav>
@@ -34,18 +41,25 @@ export async function getStaticPaths() {
                 <div
                     class="grid gap-10 md:gap-x-0 md:gap-y-20 md:grid-cols-2 lg:grid-cols-3"
                 >
-                    <!-- {
-                        posts.map((post) => (
-                            <Card
-                                title={post.title.rendered}
-                                text={post.acf.short_description}
-                                category={post.acf.category[0].name}
-                                imageUrl={post.acf.image.url}
-                                imageAlt={post.acf.image.alt}
-                                slug={post.slug}
-                            />
-                        ))
-                    } -->
+                    {
+                        items.length === 0 ? (
+                            <p>
+                                There are no posts matching this category.
+                                Please try another.
+                            </p>
+                        ) : (
+                            items.map((post) => (
+                                <Card
+                                    title={post.title.rendered}
+                                    text={post.acf.short_description}
+                                    category={post.acf.category[0].name}
+                                    imageUrl={post.acf.image.url}
+                                    imageAlt={post.acf.image.alt}
+                                    slug={post.slug}
+                                />
+                            ))
+                        )
+                    }
                 </div>
 
                 <a
