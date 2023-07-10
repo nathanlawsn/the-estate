@@ -31,10 +31,14 @@ export async function getStaticPaths() {
 <Layout title={`${post.title.rendered} | The Estate`} nav>
     <main>
         <section class="h-[85dvh] flex flex-col">
-            <VideoFullScreen
-                image={post.acf.hero_image}
-                videoUrl={post.acf.video_url}
-            />
+            {
+                post.acf._hero_image && (
+                    <VideoFullScreen
+                        image={post.acf.hero_image}
+                        videoUrl={post.acf.video_url}
+                    />
+                )
+            }
             <div>
                 <div class="grid lg:grid-cols-2">
                     <div
@@ -72,18 +76,15 @@ export async function getStaticPaths() {
                 </div>
             </div>
         </section>
-        <TextCTA text={post.acf.introduction} />
+        {post.acf.introduction && <TextCTA text={post.acf.introduction} />}
         <LodgeDetails
             tabs={post.acf.tabs_tabs}
             description={post.acf.short_description}
             carousel={post.acf.image_carousel_image_carousel}
             url={post.acf.booking_url}
         />
-        <Gallery items={post.acf.image_gallery} />
-        <Quote
-            quote="“What a fabulous place to stay for walking and cycling in the Ullswater lake area. Chalets are well equipped, comfortable and very homely, location is great, but what really makes it stand out are the staff”"
-            name="Sarah - Coventry"
-        />
+        {post.acf.image_gallery && <Gallery items={post.acf.image_gallery} />}
+        <Quote />
         <ImageCTAGrid />
     </main>
 </Layout>

@@ -1,0 +1,25 @@
+---
+import { Icon } from "astro-icon";
+
+let data = await fetch("http://theestate.cargo/wp-json/wp/v2/categories");
+let posts = await data.json();
+---
+
+<div class="border-b border-white pb-5 mb-12">
+    <h2 class="text-3xl">Filter blog articles</h2>
+</div>
+<div class="grid md:grid-cols-3 gap-8 mb-32">
+    {
+        posts.map((category) => (
+            <a
+                href={`/blog/archive/${category.slug}`}
+                class="bg-white p-6 flex justify-between items-center cursor-pointer group"
+            >
+                <label class="font-medium text-3xl">{category.name}</label>
+                <div class="h-4 w-4 group-hover:rotate-45 duration-500 ease-in-out">
+                    <Icon name="arrow" />
+                </div>
+            </a>
+        ))
+    }
+</div>
