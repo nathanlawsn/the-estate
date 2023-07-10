@@ -1,0 +1,43 @@
+---
+import { Icon } from "astro-icon";
+const { ctaId } = Astro.props;
+
+let res = await fetch(`http://theestate.cargo/wp-json/wp/v2/ctas?id=${ctaId}`);
+let [post] = await res.json();
+---
+
+<div class="max-w-2xl lg:max-w-none">
+    <div class="bg-grey-light px-8 py-9">
+        {
+            post.title.rendered && (
+                <div
+                    class="font-medium text-3xl mb-8"
+                    set:html={post.title.rendered}
+                />
+            )
+        }
+        {
+            post.content.rendered && (
+                <div
+                    class="font-medium text-base"
+                    set:html={post.content.rendered}
+                />
+            )
+        }
+    </div>
+
+    {
+        post.acf.button.url && (
+            <a
+                class="bg-primary-orange hover:bg-primary-purple transition-colors duration-500 ease-in-out text-white flex items-center gap-5 justify-between sm:gap-[4.75rem] px-6 py-7 w-full group"
+                href={post.acf.button.url}
+                target={post.acf.target}
+            >
+                <span class="text-3xl">{post.acf.button.title}</span>
+                <span class="block w-4 h-4 group-hover:rotate-45 duration-500 ease-in-out">
+                    <Icon name="arrow" />
+                </span>
+            </a>
+        )
+    }
+</div>

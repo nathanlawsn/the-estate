@@ -4,6 +4,7 @@ import Container from "../../components/Container.astro";
 import { Picture } from "@astrojs/image/components";
 import RelatedArticles from "../../components/RelatedArticles.astro";
 import Share from "../../components/Share.jsx";
+import SidebarCTA from "../../components/SidebarCTA.astro";
 
 const { slug } = Astro.params;
 
@@ -75,48 +76,7 @@ export async function getStaticPaths() {
                         <div class="content" set:html={post.content.rendered} />
                     </div>
 
-                    <div class="max-w-2xl lg:max-w-none">
-                        <div class="bg-grey-light px-8 py-9">
-                            <h2 class="font-medium text-3xl mb-8">
-                                St Patrick’s boat landing
-                            </h2>
-                            <p class="font-medium text-base">
-                                Explore breathtaking views of Ullswater at your
-                                own pace with the hire of one of our self drive
-                                motor boats, rowing boats or canoes.
-                            </p>
-                            <p class="font-medium text-base m-0">
-                                Whether you’re seeking adventure or a piece of
-                                tranquility, we have options for all!
-                            </p>
-                        </div>
-                        <a
-                            class="bg-primary-orange hover:bg-primary-purple transition-colors duration-500 ease-in-out text-white flex items-center gap-5 justify-between sm:gap-[4.75rem] px-6 py-7 w-full group"
-                            href="#"
-                        >
-                            <span class="text-3xl">Book online</span>
-                            <span
-                                class="block w-4 h-4 group-hover:rotate-45 duration-500 ease-in-out"
-                            >
-                                <svg
-                                    viewBox="0 0 17.978 17.978"
-                                    astro-icon="arrow"
-                                    ><g
-                                        fill="none"
-                                        stroke="currentColor"
-                                        stroke-linecap="round"
-                                        stroke-linejoin="round"
-                                        stroke-width="2"
-                                        ><path
-                                            d="m1.414 16.564 15.15-15.15"
-                                            data-name="Line 1"></path><path
-                                            d="M1.414 1.414h15.18v15.18"
-                                            data-name="Path 1"></path></g
-                                    ></svg
-                                >
-                            </span>
-                        </a>
-                    </div>
+                    <SidebarCTA ctaId={post.acf.call_to_action.ID} />
                 </div>
             </Container>
         </section>
