@@ -1,7 +1,7 @@
 ---
 import Gallery from "../../components/Gallery.astro";
 import Quote from "../../components/Quote.astro";
-import ImageCTAGrid from "../../components/ImageCTAGrid.astro";
+import Categories from "../../components/Categories.astro";
 import VideoFullScreen from "../../components/VideoFullScreen.astro";
 import TextCTA from "../../components/TextCTA.astro";
 import Layout from "../../layouts/Layout.astro";
@@ -85,6 +85,6 @@ export async function getStaticPaths() {
         />
         {post.acf.image_gallery && <Gallery items={post.acf.image_gallery} />}
         <Quote />
-        <ImageCTAGrid />
+        <Categories />
     </main>
 </Layout>

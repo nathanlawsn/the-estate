@@ -1,0 +1,36 @@
+---
+import { Picture } from "@astrojs/image/components";
+import { Icon } from "astro-icon";
+
+let data = await fetch(`${import.meta.env.API_URL}/wp-json/wp/v2/categories`);
+let items = await data.json();
+---
+
+<section>
+	<div class="flex flex-col md:flex-row md:items-stretch md:h-[17.813rem]">
+		{
+			items.map((category) => (
+				<a
+					href={`blog/archive/${category.slug}`}
+					class="bg-black flex-auto text-white text-3xl font-medium relative after:block after:bg-black/10 after:absolute after:top-0 after:bottom-0 after:left-0 after:right-0 after:z-20 group hover:after:bg-transparent after:transition-colors after:duration-500 after:ease-in-out cursor-pointer overflow-hidden h-[12rem] md:h-full"
+				>
+					<Picture
+						src={category.acf.image.url}
+						widths={[768, 1024]}
+						aspectRatio="435:284"
+						sizes="(max-width: 768px) 100vw, 1024px"
+						alt="Person on a hike"
+						class="w-full h-full object-cover absolute z-10 group-hover:scale-105 duration-1000 ease-in-out"
+					/>
+
+					<div class="flex justify-between gap-4 items-center p-4 relative z-30">
+						<span>{category.name}</span>
+						<span class="shrink-0 group-hover:rotate-45 duration-500 ease-in-out">
+							<Icon name="arrow" />
+						</span>
+					</div>
+				</a>
+			))
+		}
+	</div>
+</section>
