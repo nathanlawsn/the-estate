@@ -8,7 +8,7 @@ import VideoSlider from "../components/VideoSlider.astro";
 import ImageCTAGrid from "../components/ImageCTAGrid.astro";
 
 let res = await fetch(
-	"http://theestate.cargo/wp-json/wp/v2/pages?slug=homepage"
+	`${import.meta.env.API_URL}/wp-json/wp/v2/pages?slug=homepage`
 );
 let page = await res.json();
 ---

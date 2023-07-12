@@ -1,7 +1,7 @@
 ---
 import { Icon } from "astro-icon";
 
-let data = await fetch("http://theestate.cargo/wp-json/wp/v2/categories");
+let data = await fetch(`${import.meta.env.API_URL}/wp-json/wp/v2/categories`);
 let posts = await data.json();
 ---
 

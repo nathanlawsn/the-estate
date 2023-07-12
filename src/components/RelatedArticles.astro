@@ -5,7 +5,7 @@ import Card from "./Card.astro";
 const { categoryId } = Astro.props;
 
 let res = await fetch(
-    `http://theestate.cargo/wp-json/wp/v2/posts?categories=${categoryId}`
+    `${import.meta.env.API_URL}/wp-json/wp/v2/posts?categories=${categoryId}`
 );
 let items = await res.json();
 ---

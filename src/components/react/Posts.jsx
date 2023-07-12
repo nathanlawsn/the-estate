@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import Card from './Card';
 
-let res = await fetch("http://theestate.cargo/wp-json/wp/v2/posts");
+let res = await fetch(`${import.meta.env.API_URL}/wp-json/wp/v2/posts`);
 let posts = await res.json();
 
 export default function Posts() {

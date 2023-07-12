@@ -9,14 +9,14 @@ import SidebarCTA from "../../components/SidebarCTA.astro";
 const { slug } = Astro.params;
 
 let res = await fetch(
-    `http://theestate.cargo/wp-json/wp/v2/posts?slug=${slug}`
+    `${import.meta.env.API_URL}/wp-json/wp/v2/posts?slug=${slug}`
 );
 let [post] = await res.json();
 
 // The getStaticPaths() is required for static Astro sites.
 // If using SSR, you will not need this function.
 export async function getStaticPaths() {
-    let data = await fetch("http://theestate.cargo/wp-json/wp/v2/posts");
+    let data = await fetch(`${import.meta.env.API_URL}/wp-json/wp/v2/posts`);
     let posts = await data.json();
 
     return posts.map((post) => ({

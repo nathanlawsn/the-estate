@@ -3,6 +3,7 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Fix issue with Astro overriding CSS */
 @layer base {
     p {
         @apply text-lg font-medium mb-6;

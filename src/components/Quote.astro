@@ -1,7 +1,7 @@
 ---
 import QuoteSlider from "../components/react/QuoteSlider";
 
-let res = await fetch("http://theestate.cargo/wp-json/options/all");
+let res = await fetch(`${import.meta.env.API_URL}/wp-json/options/all`);
 let items = await res.json();
 ---
 

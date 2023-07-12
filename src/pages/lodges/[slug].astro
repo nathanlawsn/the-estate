@@ -11,14 +11,14 @@ import { Icon } from "astro-icon";
 const { slug } = Astro.params;
 
 let res = await fetch(
-    `http://theestate.cargo/wp-json/wp/v2/lodges?slug=${slug}`
+    `${import.meta.env.API_URL}/wp-json/wp/v2/lodges?slug=${slug}`
 );
 let [post] = await res.json();
 
 // The getStaticPaths() is required for static Astro sites.
 // If using SSR, you will not need this function.
 export async function getStaticPaths() {
-    let data = await fetch("http://theestate.cargo/wp-json/wp/v2/lodges");
+    let data = await fetch(`${import.meta.env.API_URL}/wp-json/wp/v2/lodges`);
     let posts = await data.json();
 
     return posts.map((post) => ({

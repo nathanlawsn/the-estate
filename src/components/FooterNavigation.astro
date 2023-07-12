@@ -1,6 +1,6 @@
 ---
 let res = await fetch(
-    "http://theestate.cargo/wp-json/menus/v1/menus/footer-navigation"
+    `${import.meta.env.API_URL}/wp-json/menus/v1/menus/footer-navigation`
 );
 let menu = await res.json();
 ---

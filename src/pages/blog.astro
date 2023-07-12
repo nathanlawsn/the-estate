@@ -1,12 +1,8 @@
 ---
-import { Icon } from "astro-icon";
 import Layout from "../layouts/Layout.astro";
 import Container from "../components/Container.astro";
 import CategoryFilters from "../components/CategoryFilters.astro";
 import Posts from "../components/react/Posts";
-
-let res = await fetch("http://theestate.cargo/wp-json/wp/v2/posts");
-let posts = await res.json();
 ---
 
 <Layout title="Blog | The Estate" nav>
