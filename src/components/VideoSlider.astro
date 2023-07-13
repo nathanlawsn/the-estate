@@ -1,5 +1,6 @@
 ---
 import { Icon } from "astro-icon";
+import { Picture } from "@astrojs/image/components";
 import Container from "./Container.astro";
 import Modal from "../components/react/Modal";
 import VideoSwiper from "../components/react/VideoSwiper";
@@ -17,10 +18,13 @@ const { videoUrl, videoThumbnailUrl, videoThumbnailAlt, items } = Astro.props;
 			<div
 				class="aspect-[696/640] bg-black flex items-center justify-center relative"
 			>
-				<img
-					class="object-cover w-full h-full"
+				<Picture
 					src={videoThumbnailUrl}
+					widths={[400, 696]}
+					aspectRatio="696:640"
+					sizes="(max-width: 696px) 100vw"
 					alt={videoThumbnailAlt}
+					class="object-cover w-full h-full"
 				/>
 				<Modal url={videoUrl} client:load />
 			</div>
