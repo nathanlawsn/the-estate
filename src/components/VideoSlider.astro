@@ -2,8 +2,8 @@
 import { Icon } from "astro-icon";
 import { Picture } from "@astrojs/image/components";
 import Container from "./Container.astro";
-import Modal from "../components/react/Modal";
-import VideoSwiper from "../components/react/VideoSwiper";
+import VideoModal from "../components/react/VideoModal";
+import TextCarouselSwiper from "./react/TextCarouselSwiper";
 
 const { videoUrl, videoThumbnailUrl, videoThumbnailAlt, items } = Astro.props;
 ---
@@ -26,10 +26,10 @@ const { videoUrl, videoThumbnailUrl, videoThumbnailAlt, items } = Astro.props;
 					alt={videoThumbnailAlt}
 					class="object-cover w-full h-full"
 				/>
-				<Modal url={videoUrl} client:load />
+				<VideoModal url={videoUrl} client:visible />
 			</div>
 
-			<VideoSwiper client:visible items={items} />
+			<TextCarouselSwiper client:visible items={items} />
 
 			<Icon
 				class="hidden lg:block absolute -right-20 bottom-44 max-w-[77.375rem]"

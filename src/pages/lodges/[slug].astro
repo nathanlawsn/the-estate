@@ -1,12 +1,13 @@
 ---
-import Gallery from "../../components/Gallery.astro";
-import Quote from "../../components/Quote.astro";
-import Categories from "../../components/Categories.astro";
+import { Icon } from "astro-icon";
+
+import Layout from "../../layouts/Layout.astro";
 import VideoFullScreen from "../../components/VideoFullScreen.astro";
 import TextCTA from "../../components/TextCTA.astro";
-import Layout from "../../layouts/Layout.astro";
 import LodgeDetails from "../../components/LodgeDetails.astro";
-import { Icon } from "astro-icon";
+import Gallery from "../../components/Gallery.astro";
+import Testimonials from "../../components/Testimonials.astro";
+import Categories from "../../components/Categories.astro";
 
 const { slug } = Astro.params;
 
@@ -84,7 +85,8 @@ export async function getStaticPaths() {
             url={post.acf.booking_url}
         />
         {post.acf.image_gallery && <Gallery items={post.acf.image_gallery} />}
-        <Quote />
+
+        <Testimonials />
         <Categories />
     </main>
 </Layout>

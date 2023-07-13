@@ -1,5 +1,5 @@
 ---
-import Modal from "../components/react/Modal";
+import VideoModal from "../components/react/VideoModal";
 import { Picture } from "@astrojs/image/components";
 
 const { image, videoUrl } = Astro.props;
@@ -17,5 +17,5 @@ const { image, videoUrl } = Astro.props;
             class="w-full h-full object-cover"
         />
     </div>
-    <Modal url={videoUrl} client:visible />
+    <VideoModal url={videoUrl} client:visible />
 </div>

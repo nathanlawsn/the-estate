@@ -5,7 +5,7 @@ import "swiper/css/pagination";
 
 import { Autoplay, Pagination } from "swiper";
 
-export default function VideoSwiper({ items }) {
+export default function TextCarouselSwiper({ items }) {
   return (
     <div className="flex flex-col max-w-full relative">
         <Swiper

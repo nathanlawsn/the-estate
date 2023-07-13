@@ -1,15 +1,14 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import Hero from "../components/Hero.astro";
-import Quote from "../components/Quote.astro";
 import TextCTA from "../components/TextCTA.astro";
-import Lodges from "../components/Lodges.astro";
 import VideoSlider from "../components/VideoSlider.astro";
+import Lodges from "../components/Lodges.astro";
+import Testimonials from "../components/Testimonials.astro";
 import Categories from "../components/Categories.astro";
 
-let res = await fetch(
-	`${import.meta.env.API_URL}/wp-json/wp/v2/pages?slug=homepage`
-);
+let api = `${import.meta.env.API_URL}/wp-json/wp/v2/pages?slug=homepage`;
+let res = await fetch(api);
 let page = await res.json();
 ---
 
@@ -33,7 +32,7 @@ let page = await res.json();
 			styles="bg-white"
 		/>
 		<VideoSlider
-			videoUrl={page[0].acf.video_slider_video_url}
+			videoUrl={api}
 			videoThumbnailUrl={page[0].acf.video_slider_video_thumbnail.url}
 			videoThumbnailAlt={page[0].acf.video_slider_video_thumbnail.alt}
 			items={page[0].acf.video_slider_items}
@@ -44,7 +43,8 @@ let page = await res.json();
 				<Lodges items={page[0].acf.featured_accommodation} />
 			)
 		}
-		<Quote />
+
+		<Testimonials />
 		<Categories />
 	</main>
 </Layout>
