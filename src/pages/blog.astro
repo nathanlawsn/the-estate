@@ -1,11 +1,15 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import Container from "../components/Container.astro";
+import HeroImageCarouselSwiper from "../components/react/HeroImageCarouselSwiper";
 import CategoryFilters from "../components/CategoryFilters.astro";
 import Posts from "../components/react/Posts";
 ---
 
 <Layout title="Blog | The Estate" description="" nav>
+    <section>
+        <HeroImageCarouselSwiper />
+    </section>
     <section class="pt-24 pb-36">
         <Container>
             <CategoryFilters />

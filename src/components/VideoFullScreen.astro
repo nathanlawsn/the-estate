@@ -17,5 +17,5 @@ const { image, videoUrl } = Astro.props;
             class="w-full h-full object-cover"
         />
     </div>
-    <VideoModal url={videoUrl} client:visible />
+    {videoUrl && <VideoModal url={videoUrl} client:visible />}
 </div>
