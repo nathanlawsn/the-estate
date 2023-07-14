@@ -36,13 +36,13 @@ export default function HeroImageCarouselSwiper() {
 
                 <div className='w-8 h-8 shrink-0 sm:w-[3.125rem] sm:h-[3.125rem]'>
                   <svg className='w-full h-full' xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 50 50">
-                    <g id="Ellipse_3" data-name="Ellipse 3" fill="#fff" stroke="#fff" stroke-width="1">
+                    <g id="Ellipse_3" data-name="Ellipse 3" fill="#fff" stroke="#fff" strokeWidth="1">
                       <circle cx="25" cy="25" r="25" stroke="none"/>
                       <circle cx="25" cy="25" r="24.5" fill="none"/>
                     </g>
                     <g id="arrow-up-right" transform="translate(10 10)">
-                      <line id="Line_1" data-name="Line 1" y1="15.15" x2="15.15" transform="translate(7 7)" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
-                      <path id="Path_1" data-name="Path 1" d="M7,7H22.18V22.18" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+                      <line id="Line_1" data-name="Line 1" y1="15.15" x2="15.15" transform="translate(7 7)" fill="none" stroke="#000" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2"/>
+                      <path id="Path_1" data-name="Path 1" d="M7,7H22.18V22.18" fill="none" stroke="#000" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2"/>
                     </g>
                   </svg>
                 </div>

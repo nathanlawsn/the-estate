@@ -30,18 +30,18 @@ const Accordion = ({ title, content }) => {
                       transform="translate(7 7)"
                       fill="none"
                       stroke="#000"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"></line>
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth="2"></line>
                   <path
                       id="Path_1"
                       data-name="Path 1"
                       d="M7,7H22.18V22.18"
                       fill="none"
                       stroke="#000"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"></path>
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth="2"></path>
               </g>
           </svg>
         </span>
