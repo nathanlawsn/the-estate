@@ -13,7 +13,7 @@ const { videoUrl, videoThumbnailUrl, videoThumbnailAlt, items } = Astro.props;
 >
 	<Container>
 		<div
-			class="bg-[#522D43] text-white grid grid-cols-1 md:grid-cols-2 lg:grid-cols-[minmax(0,_4fr)_minmax(0,_3fr)] p-10 xl:py-[5.375rem] xl:px-[4.125rem] gap-10 xl:gap-20 relative"
+			class="bg-[#522D43] text-white grid grid-cols-1 lg:grid-cols-[minmax(0,_4fr)_minmax(0,_3fr)] p-10 md:py-[5.375rem] md:px-[4.125rem] lg:p-10 xl:py-[5.375rem] xl:px-[4.125rem] gap-12 md:gap-20 lg:gap-12 xl:gap-20 relative"
 		>
 			<div
 				class="aspect-[696/640] bg-black flex items-center justify-center relative"
@@ -32,7 +32,7 @@ const { videoUrl, videoThumbnailUrl, videoThumbnailAlt, items } = Astro.props;
 			<TextCarouselSwiper client:visible items={items} />
 
 			<Icon
-				class="hidden lg:block absolute -right-20 bottom-44 max-w-[77.375rem]"
+				class="hidden lg:block absolute -right-20 bottom-20 xl:bottom-40 max-w-[77.375rem]"
 				name="illustration-canoeing"
 			/>
 		</div>

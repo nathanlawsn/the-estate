@@ -24,11 +24,11 @@ export default function TextCarouselSwiper({ items }) {
             {
                 items.map((slide, i) => (
                     <SwiperSlide key={i}>
-                        <div className="flex flex-col mb-8 lg:m-0">
+                        <div className="flex flex-col mb-10 sm:mb-16 lg:mb-0">
                             <div className="text-center max-w-[30rem] mx-auto lg:py-24">
                                 <div className="mb-4 text-lg font-medium">{slide.slide_subheading}</div>
                                 <h2
-                                    className="text-primary-orange font-medium font-sans text-3xl md:text-[2.5rem]/[2.5rem] mb-8 md:mb-12"
+                                    className="text-primary-orange font-medium font-sans text-3xl sm:text-[2.5rem]/[2.5rem] mb-4 sm:mb-8"
                                 >
                                     {slide.slide_heading}
                                 </h2>
@@ -39,7 +39,7 @@ export default function TextCarouselSwiper({ items }) {
                 ))
             }
         </Swiper>
-        <div className="mt-20 lg:mt-auto absolute bottom-4 w-full">
+        <div className="hidden xl:block absolute bottom-4 w-full">
             <div
                 className="flex items-center justify-between gap-4 font-medium text-[0.938rem]"
             >

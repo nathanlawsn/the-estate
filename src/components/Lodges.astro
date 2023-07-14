@@ -8,14 +8,14 @@ const { items } = Astro.props;
 
 {
 	items.map((item) => (
-		<section class="pt-20 md:pt-40" id={item.group_heading}>
+		<section class="pt-20 md:pt-32 lg:pt-40" id="accommodation">
 			<Container>
 				<h2 class="font-medium font-sans text-[2.5rem]/[2.5rem] mb-[3.25rem]">
 					{item.group_heading}
 				</h2>
-				<div class="grid md:grid-cols-2 md:gap-20 lg:grid-cols-[minmax(0,_3fr)_minmax(0,_2fr)] gap-10 lg:gap-56">
+				<div class="grid lg:grid-cols-[minmax(0,_3fr)_minmax(0,_2fr)] gap-10 lg:gap-20 xl:gap-56">
 					<p class="m-0">{item.group_description}</p>
-					<ul class="flex flex-col gap-6 font-medium text-lg">
+					<ul class="flex flex-col md:flex-row lg:flex-col gap-6 md:gap-10 lg:gap-6 font-medium text-lg">
 						<li class="flex items-center gap-4">
 							<span class="block w-8 h-8">
 								<Icon name="key" />
@@ -37,7 +37,7 @@ const { items } = Astro.props;
 					</ul>
 				</div>
 
-				<div class="mt-10 md:mt-20 grid gap-10 md:gap-0 md:grid-cols-2 lg:grid-cols-3">
+				<div class="mt-10 md:mt-20 grid gap-10 md:gap-0 md:grid-cols-3">
 					{item.group_accommodation.map((item, i) => (
 						<Lodge id={item.property.ID} key={i} />
 					))}

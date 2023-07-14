@@ -19,7 +19,7 @@ export default function ImageCarouselSwiper({ items }) {
     >
       {items.map((item) => (
         <SwiperSlide key={item.image.id}>
-            <img src={item.image.url} alt={item.image.alt} />
+            <img className='w-full h-full object-cover aspect-[800/492]' src={item.image.url} alt={item.image.alt} />
         </SwiperSlide>
       ))}
     </Swiper>

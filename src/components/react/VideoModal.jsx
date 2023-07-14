@@ -31,15 +31,17 @@ const VideoModal = ({ url }) => {
   return (
     <>
       <div className='absolute cursor-pointer left-0 right-0 z-30 top-1/2 -translate-y-1/2 hover:scale-105 duration-500 ease-in-out transition-transform flex justify-center' onClick={openModal}>
-        <svg xmlns="http://www.w3.org/2000/svg" width="88" height="88" viewBox="0 0 88 88">
-        <g id="Group_24" data-name="Group 24" transform="translate(-446.25 -1652)">
-          <g id="Ellipse_3" data-name="Ellipse 3" transform="translate(446.25 1652)" fill="#fff" stroke="#fff" strokeWidth="1">
-          <circle cx="44" cy="44" r="44" stroke="none"/>
-          <circle cx="44" cy="44" r="43.5" fill="none"/>
+        <span className='w-16 h-16 sm:w-[5.5rem] sm:h-[5.5rem]'>
+          <svg className='w-full h-full' xmlns="http://www.w3.org/2000/svg" width="88" height="88" viewBox="0 0 88 88">
+          <g id="Group_24" data-name="Group 24" transform="translate(-446.25 -1652)">
+            <g id="Ellipse_3" data-name="Ellipse 3" transform="translate(446.25 1652)" fill="#fff" stroke="#fff" strokeWidth="1">
+            <circle cx="44" cy="44" r="44" stroke="none"/>
+            <circle cx="44" cy="44" r="43.5" fill="none"/>
+            </g>
+            <path id="Polygon_3" data-name="Polygon 3" d="M11,0,22,19H0Z" transform="translate(502.25 1684.5) rotate(90)" fill="#ff834b"/>
           </g>
-          <path id="Polygon_3" data-name="Polygon 3" d="M11,0,22,19H0Z" transform="translate(502.25 1684.5) rotate(90)" fill="#ff834b"/>
-        </g>
-        </svg>
+          </svg>
+        </span>
       </div>
       
       <div className={`fixed z-50 top-0 bottom-0 left-0 right-0 duration-500 ease-in-out transition-colors ${showModal ? 'bg-black/80 pointer-events-auto' : 'bg-transparent pointer-events-none'}`}>
@@ -48,7 +50,7 @@ const VideoModal = ({ url }) => {
             <div className="bg-black">
               <Video url={videoUrl} />
             </div>
-            <button className="absolute -top-10 right-8 w-5 h-5" onClick={closeModal}>
+            <button aria-label="Close modal" className="absolute -top-10 right-8 w-5 h-5" onClick={closeModal}>
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 14 14" fill="#ffffff">
                 <path d="M12,10.93l5.719-5.72a.751.751,0,0,1,1.062,1.062l-5.72,5.719L18.78,17.71a.751.751,0,0,1-1.061,1.062L12,13.053,6.281,18.772A.751.751,0,0,1,5.22,17.71l5.719-5.719L5.219,6.272A.751.751,0,0,1,6.281,5.21Z" transform="translate(-5 -4.991)" fillRule="evenodd"/>
               </svg>
