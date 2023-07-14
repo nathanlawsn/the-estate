@@ -12,7 +12,7 @@ let items = await data.json();
 			items.map((category) => (
 				<a
 					href={`blog/archive/${category.slug}`}
-					class="bg-black flex-auto text-white text-3xl font-medium relative after:block after:bg-black/10 after:absolute after:top-0 after:bottom-0 after:left-0 after:right-0 after:z-20 group hover:after:bg-transparent after:transition-colors after:duration-500 after:ease-in-out cursor-pointer overflow-hidden h-[12rem] lg:h-full"
+					class="categories--item bg-black flex-auto text-white text-3xl font-medium relative after:block after:bg-black/10 after:absolute after:top-0 after:bottom-0 after:left-0 after:right-0 after:z-20 group hover:after:bg-transparent after:transition-colors after:duration-500 after:ease-in-out cursor-pointer overflow-hidden h-[12rem] lg:h-full"
 				>
 					<Picture
 						src={category.acf.image.url}
@@ -34,3 +34,16 @@ let items = await data.json();
 		}
 	</div>
 </section>
+
+<style>
+	.categories--item:first-child {
+		@apply lg:w-1/4;
+	}
+	.categories--item:nth-child(2) {
+		@apply lg:w-1/4;
+	}
+
+	.categories--item:last-child {
+		@apply lg:w-1/2;
+	}
+</style>
