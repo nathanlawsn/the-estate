@@ -12,7 +12,10 @@ let res = await fetch(api);
 let page = await res.json();
 ---
 
-<Layout title="The Estate">
+<Layout
+	title={page[0].yoast_head_json.title}
+	description={page[0].yoast_head_json.description}
+>
 	<main>
 		<Hero
 			heading={page[0].acf.hero_heading}
