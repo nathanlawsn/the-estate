@@ -7,21 +7,23 @@ import { Autoplay, Navigation } from "swiper";
 
 export default function ImageCarouselSwiper({ items }) {
   return (
-    <Swiper
-        className=""
-        autoplay={{
-          delay: 5000,
-          disableOnInteraction: false,
-        }}
-        navigation
-        modules={[Autoplay, Navigation]}
-        speed={500}
-    >
-      {items.map((item) => (
-        <SwiperSlide key={item.image.id}>
-            <img className='w-full h-full object-cover aspect-[800/492]' src={item.image.url} alt={item.image.alt} />
-        </SwiperSlide>
-      ))}
-    </Swiper>
+    <div>
+      <Swiper
+          className=""
+          autoplay={{
+            delay: 5000,
+            disableOnInteraction: false,
+          }}
+          navigation
+          modules={[Autoplay, Navigation]}
+          speed={500}
+      >
+        {items.map((item) => (
+          <SwiperSlide key={item.image.id}>
+              <img className='w-full h-full object-cover aspect-[800/492]' src={item.image.url} alt={item.image.alt} />
+          </SwiperSlide>
+        ))}
+      </Swiper>
+    </div>
   );
 }

@@ -11,9 +11,8 @@ import Categories from "../../components/Categories.astro";
 
 const { slug } = Astro.params;
 
-let res = await fetch(
-    `${import.meta.env.API_URL}/wp-json/wp/v2/lodges?slug=${slug}`
-);
+let api = `${import.meta.env.API_URL}/wp-json/wp/v2/lodges?slug=${slug}`;
+let res = await fetch(api);
 let [post] = await res.json();
 
 // The getStaticPaths() is required for static Astro sites.
@@ -36,7 +35,7 @@ export async function getStaticPaths() {
                 post.acf.hero_image && (
                     <VideoFullScreen
                         image={post.acf.hero_image}
-                        videoUrl={post.acf.video_url}
+                        videoUrl={api}
                     />
                 )
             }
@@ -84,6 +83,7 @@ export async function getStaticPaths() {
             carousel={post.acf.image_carousel_image_carousel}
             url={post.acf.booking_url}
         />
+
         {post.acf.image_gallery && <Gallery items={post.acf.image_gallery} />}
 
         <Testimonials />

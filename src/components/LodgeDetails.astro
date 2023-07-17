@@ -1,6 +1,6 @@
 ---
 import Container from "./Container.astro";
-import ImageCarousel from "./ImageCarousel.astro";
+import ImageCarouselSwiper from "./react/ImageCarouselSwiper";
 import Accordion from "../components/react/Accordion";
 import { Icon } from "astro-icon";
 
@@ -50,7 +50,11 @@ const { tabs, description, carousel, url } = Astro.props;
                 }
             </div>
 
-            {carousel && <ImageCarousel items={carousel} />}
+            {
+                carousel && (
+                    <ImageCarouselSwiper items={carousel} client:visible />
+                )
+            }
         </div>
     </Container>
 </section>
