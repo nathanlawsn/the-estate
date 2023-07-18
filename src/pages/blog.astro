@@ -4,6 +4,9 @@ import Container from "../components/Container.astro";
 import HeroImageCarouselSwiper from "../components/react/HeroImageCarouselSwiper";
 import CategoryFilters from "../components/CategoryFilters.astro";
 import Posts from "../components/react/Posts";
+
+let res = await fetch(`${import.meta.env.API_URL}/wp-json/wp/v2/posts`);
+let posts = await res.json();
 ---
 
 <Layout title="Blog | The Estate" description="" nav>
@@ -13,7 +16,7 @@ import Posts from "../components/react/Posts";
     <section class="pt-24 pb-36">
         <Container>
             <CategoryFilters />
-            <Posts client:load />
+            <Posts posts={posts} client:load />
         </Container>
     </section>
 </Layout>

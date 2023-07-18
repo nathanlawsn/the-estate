@@ -1,13 +1,10 @@
 ---
-let res = await fetch(
-    `${import.meta.env.API_URL}/wp-json/menus/v1/menus/primary-navigation`
-);
-let menu = await res.json();
+const { items } = Astro.props;
 ---
 
-<ul class="hidden lg:flex items-center gap-8 font-medium text-lg">
+<ul class="hidden xl:flex items-center gap-8 font-medium text-lg">
     {
-        menu.items.map((item) => (
+        items.items.map((item) => (
             <li>
                 <a class="hover:underline" href={item.url}>
                     {item.title}
