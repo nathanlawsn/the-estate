@@ -1,10 +1,7 @@
 import React, { useState } from 'react';
 import Card from './Card';
 
-let res = await fetch(`${import.meta.env.API_URL}/wp-json/wp/v2/posts`);
-let posts = await res.json();
-
-export default function Posts() {
+export default function Posts({ posts }) {
 
   const [displayedItems, setDisplayedItems] = useState(9);
 
@@ -34,9 +31,9 @@ export default function Posts() {
                     <svg viewBox="0 0 17.978 17.978" astro-icon="arrow">
                         <g fill="none"
                             stroke="currentColor"
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                            stroke-width="2"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth="2"
                             ><path
                                 d="m1.414 16.564 15.15-15.15"
                                 data-name="Line 1"></path><path
