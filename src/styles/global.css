@@ -91,3 +91,21 @@ body {
 .content > p:first-child {
     @apply text-2xl md:text-3xl/[2.5rem] mb-16 md:mb-[5.5rem];
 }
+
+.header {
+    view-transition-name: header;
+}
+
+.footer {
+    view-transition-name: footer;
+}
+
+::view-transition-old(header),
+::view-transition-new(header) {
+    mix-blend-mode: normal;
+}
+
+::view-transition-old(footer),
+::view-transition-new(footer) {
+    mix-blend-mode: normal;
+}
