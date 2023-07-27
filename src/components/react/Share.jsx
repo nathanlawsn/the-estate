@@ -3,14 +3,14 @@ import { TwitterShareButton, FacebookShareButton } from "next-share";
 
 export default function Share({url, title}) {
     return (
-        <div class="flex items-center gap-5">
+        <div className="flex items-center gap-5">
             <span>Share via</span>
-            <div class="flex items-center gap-2.5">
+            <div className="flex items-center gap-2.5">
                 <TwitterShareButton url={url} title={title} blankTarget>
-                    <span class="block w-8 h-7 text-primary-orange hover:text-primary-purple duration-500 ease-in-out">
+                    <span className="block w-8 h-7 text-primary-orange hover:text-primary-purple duration-500 ease-in-out">
                         <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30">
                             <g id="Group_43" data-name="Group 43" transform="translate(-144.27 -713.996)">
-                                <g id="Ellipse_189" data-name="Ellipse 189" transform="translate(144.27 713.996)" fill="none" stroke="currentColor" stroke-width="1">
+                                <g id="Ellipse_189" data-name="Ellipse 189" transform="translate(144.27 713.996)" fill="none" stroke="currentColor" strokeWidth="1">
                                 <circle cx="15" cy="15" r="15" stroke="none"/>
                                 <circle cx="15" cy="15" r="14.5" fill="none"/>
                                 </g>
@@ -20,7 +20,7 @@ export default function Share({url, title}) {
                     </span>
                 </TwitterShareButton>
                 <FacebookShareButton url={url} quote={title} blankTarget>
-                    <span class="block w-8 h-7 text-primary-orange hover:text-primary-purple duration-500 ease-in-out">
+                    <span className="block w-8 h-7 text-primary-orange hover:text-primary-purple duration-500 ease-in-out">
                         <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30">
                             <g id="Group_44" data-name="Group 44" transform="translate(-184.232 -713.996)">
                                 <g id="Ellipse_192" data-name="Ellipse 192" transform="translate(184.232 713.996)" fill="none" stroke="currentColor" stroke-width="1">

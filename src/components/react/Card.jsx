@@ -7,7 +7,7 @@ export default function Card({ title, text, imageUrl, imageAlt, category, slug }
 			href={`/blog/${slug}`}
 			className="overflow-hidden relative group cursor-pointer bg-white"
 		>
-			<div class="relative">
+			<div className="relative">
 				<img
 					src={imageUrl}
 					alt={imageAlt}

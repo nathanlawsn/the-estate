@@ -26,8 +26,8 @@ export default function Posts({ posts }) {
             </div>
             
             <button className="bg-primary-orange text-white flex items-center gap-5 sm:gap-[4.75rem] px-5 md:px-11 py-3 min-h-[5rem] sm:min-h-[6.25rem] w-full hover:bg-primary-purple transition-colors duration-500 ease-in-out group text-center justify-center" onClick={loadMoreItems}>
-                <span class="text-2xl sm:text-[2.125rem] ml-auto">Load more articles</span>
-                <span class="block w-6 h-6 sm:w-8 sm:h-8 group-hover:rotate-45 duration-500 ease-in-out ml-auto">
+                <span className="text-2xl sm:text-[2.125rem] ml-auto">Load more articles</span>
+                <span className="block w-6 h-6 sm:w-8 sm:h-8 group-hover:rotate-45 duration-500 ease-in-out ml-auto">
                     <svg viewBox="0 0 17.978 17.978" astro-icon="arrow">
                         <g fill="none"
                             stroke="currentColor"
