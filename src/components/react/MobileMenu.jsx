@@ -10,7 +10,7 @@ const MobileMenu = ({ items }) => {
 
   return (
     <div className='xl:hidden'>
-        <button onClick={handleMenuToggle}>
+        <button aria-label='Toggle menu' onClick={handleMenuToggle}>
             {isOpen ? <XMarkIcon className='w-8 h-8 text-black' /> : <Bars3Icon className='w-8 h-8 text-black' /> }
         </button>
 

@@ -48,7 +48,9 @@ const VideoModal = ({ url }) => {
         <div className={`fixed duration-500 transition-all z-50 top-1/2 left-0 right-0 justify-center items-center flex ${showModal ? '-translate-y-1/2 opacity-100' : 'translate-y-full opacity-0'}`}>
           <div className="relative w-full max-w-5xl px-8">
             <div className="bg-black">
-              <Video url={videoUrl} />
+              {showModal &&
+                <Video url={videoUrl} />
+              }
             </div>
             <button aria-label="Close modal" className="absolute -top-10 right-8 w-5 h-5" onClick={closeModal}>
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 14 14" fill="#ffffff">
