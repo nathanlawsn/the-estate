@@ -20,7 +20,7 @@ let page = await res.json();
 
 					<div class="flex flex-col gap-4">
 						<p class="m-0">Tel: {page.general_phone_number}</p>
-						<p class="m-0">Email: {page.general_email_address}</p>
+						<p class="m-0">Email: <a href={`mailto:${page.general_email_address}`}>{page.general_email_address}</a></p>
 						<p class="m-0">
 							Address: {page.company_address[0].address_line}
 						</p>
