@@ -1,21 +1,21 @@
 ---
 let res = await fetch(
-    `${import.meta.env.API_URL}/wp-json/menus/v1/menus/footer-navigation`
+	`${import.meta.env.API_URL}/wp-json/menus/v1/menus/footer-navigation`
 );
 let menu = await res.json();
 ---
 
 <div>
-    <h3 class="mb-9 text-2xl md:text-3xl font-medium">Sitemap</h3>
-    <ul class="text-[0.938rem] font-medium flex flex-col gap-2">
-        {
-            menu.items.map((item) => (
-                <li>
-                    <a class="hover:underline" href={item.url}>
-                        {item.title}
-                    </a>
-                </li>
-            ))
-        }
-    </ul>
+	<h3 class="mb-9 text-2xl md:text-3xl font-medium">Sitemap</h3>
+	<ul class="text-[0.938rem] font-medium flex flex-col gap-2">
+		{
+			menu.items.map((item) => (
+				<li>
+					<a class="hover:underline" href={item.slug}>
+						{item.title}
+					</a>
+				</li>
+			))
+		}
+	</ul>
 </div>

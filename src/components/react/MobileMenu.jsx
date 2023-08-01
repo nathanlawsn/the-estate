@@ -18,7 +18,7 @@ const MobileMenu = ({ items }) => {
             <ul className='flex flex-col gap-5'>
               {items.items.map((item, i) =>(
                 <li key={i}>
-                    <a className="hover:underline focus:underline" href={item.url}>
+                    <a className="hover:underline focus:underline" href={item.slug}>
                         {item.title}
                     </a>
                 </li>

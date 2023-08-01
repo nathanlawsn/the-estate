@@ -3,13 +3,13 @@ const { items } = Astro.props;
 ---
 
 <ul class="hidden xl:flex items-center gap-8 font-medium text-lg">
-    {
-        items.items.map((item) => (
-            <li>
-                <a class="hover:underline" href={item.url} rel="prefetch">
-                    {item.title}
-                </a>
-            </li>
-        ))
-    }
+	{
+		items.items.map((item) => (
+			<li>
+				<a class="hover:underline" href={item.slug} rel="prefetch">
+					{item.title}
+				</a>
+			</li>
+		))
+	}
 </ul>
