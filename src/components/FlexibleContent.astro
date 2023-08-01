@@ -1,0 +1,35 @@
+---
+import Container from "./Container.astro";
+import Lodges from "./Lodges.astro";
+import Accordion from "./react/Accordion";
+const { data } = Astro.props;
+---
+
+<div class="flex flex-col gap-8 md:gap-20 py-8 md:py-20">
+	{
+		data.map((item, i) => {
+			switch (item.acf_fc_layout) {
+				case "text":
+					return (
+						<Container>
+							<p>Text strip</p>
+						</Container>
+					);
+				case "accordion":
+					return (
+						<Container>
+							<Accordion
+								title={item.tabs_tabs[0].tab_heading}
+								content={item.tabs_tabs[0].tab_content}
+								client:load
+							/>
+						</Container>
+					);
+				case "featured_accommodation":
+					return <Lodges items={item.featured_accommodation} />;
+				default:
+					return null; // Render a default component or return null for unknown layout types
+			}
+		})
+	}
+</div>
