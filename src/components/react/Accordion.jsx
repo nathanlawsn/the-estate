@@ -8,7 +8,7 @@ const Accordion = ({ title, content }) => {
   };
 
   return (
-    <div className="accordion border-b border-white py-6">
+    <div className="accordion border-b border-white py-6 cursor-pointer">
       <div className="accordion-header flex justify-between gap-4 items-end" onClick={toggleAccordion}>
         <h3>{title}</h3>
         <span className={`duration-500 transition-transform ease-in-out ${isOpen ? 'rotate-45' : 'rotate-0'}`}>

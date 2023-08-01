@@ -37,6 +37,10 @@ export async function getStaticPaths() {
 				</h1>
 			</Container>
 		</section>
-		<FlexibleContent data={page.acf.flexible_content} />
+		{
+			page.acf.flexible_content && (
+				<FlexibleContent data={page.acf.flexible_content} />
+			)
+		}
 	</main>
 </Layout>
