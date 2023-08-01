@@ -6,7 +6,11 @@ const { items } = Astro.props;
 	{
 		items.items.map((item) => (
 			<li>
-				<a class="hover:underline" href={item.slug} rel="prefetch">
+				<a
+					class="hover:underline"
+					href={item.slug ? `/${item.slug}` : "/#"}
+					rel="prefetch"
+				>
 					{item.title}
 				</a>
 			</li>

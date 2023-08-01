@@ -11,7 +11,10 @@ let menu = await res.json();
 		{
 			menu.items.map((item) => (
 				<li>
-					<a class="hover:underline" href={item.slug}>
+					<a
+						class="hover:underline"
+						href={item.slug ? `/${item.slug}` : "/#"}
+					>
 						{item.title}
 					</a>
 				</li>
