@@ -1,0 +1,42 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Container from "../components/Container.astro";
+import { Picture } from "@astrojs/image/components";
+import FlexibleContent from "../components/FlexibleContent.astro";
+
+const { slug } = Astro.params;
+
+let res = await fetch(
+	`${import.meta.env.API_URL}/wp-json/wp/v2/pages?slug=${slug}`
+);
+let [page] = await res.json();
+
+// The getStaticPaths() is required for static Astro sites.
+// If using SSR, you will not need this function.
+export async function getStaticPaths() {
+	let data = await fetch(
+		`${import.meta.env.API_URL}/wp-json/wp/v2/pages?exclude=38`
+	);
+	let pages = await data.json();
+
+	return pages.map((page) => ({
+		params: { slug: page.slug },
+		props: { page: page },
+	}));
+}
+---
+
+<Layout title={`${page.title.rendered} | The Estate`} description="" nav>
+	<main>
+		<section class="py-16 md:py-24 md:pb-36 bg-white">
+			<Container>
+				<h1
+					class="font-medium text-4xl md:text-[3.125rem]/[3.625rem] max-w-4xl [text-wrap:balance]"
+				>
+					{page.title.rendered}
+				</h1>
+			</Container>
+		</section>
+		<FlexibleContent data={page.acf.flexible_content} />
+	</main>
+</Layout>
