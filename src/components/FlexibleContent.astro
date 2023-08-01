@@ -12,17 +12,19 @@ const { data } = Astro.props;
 				case "text":
 					return (
 						<Container>
-							<p>Text strip</p>
+							<Fragment set:html={item.text_text} />
 						</Container>
 					);
 				case "accordion":
 					return (
 						<Container>
-							<Accordion
-								title={item.tabs_tabs[0].tab_heading}
-								content={item.tabs_tabs[0].tab_content}
-								client:load
-							/>
+							{item.tabs_tabs.map((tab, i) => (
+								<Accordion
+									title={tab.tab_heading}
+									content={tab.tab_content}
+									client:load
+								/>
+							))}
 						</Container>
 					);
 				case "featured_accommodation":
