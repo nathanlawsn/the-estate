@@ -7,8 +7,10 @@ import Lodges from "../components/Lodges.astro";
 import Testimonials from "../components/Testimonials.astro";
 import Categories from "../components/Categories.astro";
 
-let api = `${import.meta.env.API_URL}/wp-json/wp/v2/pages?slug=homepage`;
-let res = await fetch(api);
+// let api = `${import.meta.env.API_URL}/wp-json/wp/v2/pages?slug=homepage`;
+let res = await fetch(
+	`${import.meta.env.API_URL}/wp-json/wp/v2/pages?slug=homepage`
+);
 let page = await res.json();
 ---
 
@@ -36,7 +38,7 @@ let page = await res.json();
 			styles="bg-white"
 		/>
 		<VideoSlider
-			videoUrl={api}
+			videoUrl={page[0].acf.video_slider_video_url}
 			videoThumbnailUrl={page[0].acf.video_slider_video_thumbnail.url}
 			videoThumbnailAlt={page[0].acf.video_slider_video_thumbnail.alt}
 			items={page[0].acf.video_slider_items}

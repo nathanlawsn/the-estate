@@ -11,82 +11,84 @@ import Categories from "../../components/Categories.astro";
 
 const { slug } = Astro.params;
 
-let api = `${import.meta.env.API_URL}/wp-json/wp/v2/lodges?slug=${slug}`;
-let res = await fetch(api);
+// let api = `${import.meta.env.API_URL}/wp-json/wp/v2/lodges?slug=${slug}`;
+let res = await fetch(
+	`${import.meta.env.API_URL}/wp-json/wp/v2/lodges?slug=${slug}`
+);
 let [post] = await res.json();
 
 // The getStaticPaths() is required for static Astro sites.
 // If using SSR, you will not need this function.
 export async function getStaticPaths() {
-    let data = await fetch(`${import.meta.env.API_URL}/wp-json/wp/v2/lodges`);
-    let posts = await data.json();
+	let data = await fetch(`${import.meta.env.API_URL}/wp-json/wp/v2/lodges`);
+	let posts = await data.json();
 
-    return posts.map((post) => ({
-        params: { slug: post.slug },
-        props: { post: post },
-    }));
+	return posts.map((post) => ({
+		params: { slug: post.slug },
+		props: { post: post },
+	}));
 }
 ---
 
 <Layout title={`${post.title.rendered} | The Estate`} description="" nav>
-    <main>
-        <section class="h-[85dvh] flex flex-col">
-            {
-                post.acf.hero_image && (
-                    <VideoFullScreen
-                        image={post.acf.hero_image}
-                        videoUrl={api}
-                    />
-                )
-            }
-            <div>
-                <div class="grid lg:grid-cols-2">
-                    <div
-                        class="flex flex-col md:flex-row md:items-center md:justify-between py-10 md:py-6 px-5 gap-4 min-h-[5rem] bg-white md:pr-16"
-                        data-push="left"
-                    >
-                        <h1 class="text-3xl font-medium">
-                            {post.title.rendered}
-                        </h1>
-                        <div class="flex items-center gap-2">
-                            <span class="block w-5 h-4">
-                                <Icon name="bed" />
-                            </span>
-                            <span class="font-medium text-[0.938rem]"
-                                >Up to {post.acf.sleeps} people</span
-                            >
-                        </div>
-                    </div>
+	<main>
+		<section class="h-[75dvh] max-lg:max-h-[50rem] flex flex-col">
+			{
+				post.acf.hero_image && (
+					<VideoFullScreen
+						image={post.acf.hero_image}
+						videoUrl={post.acf.video_url}
+					/>
+				)
+			}
+			<div>
+				<div class="grid lg:grid-cols-2">
+					<div
+						class="flex flex-col sm:flex-row sm:items-center sm:justify-between py-8 lg:py-6 px-5 gap-4 min-h-[5rem] bg-white sm:pr-16"
+						data-push="left"
+					>
+						<h1 class="text-3xl font-medium">
+							{post.title.rendered}
+						</h1>
+						<div class="flex items-center gap-2">
+							<span class="block w-5 h-4">
+								<Icon name="bed" />
+							</span>
+							<span class="font-medium text-[0.938rem]"
+								>Up to {post.acf.sleeps} people</span
+							>
+						</div>
+					</div>
 
-                    <div class="group bg-primary-orange" data-push="right">
-                        <a
-                            class="bg-primary-orange text-white flex items-center gap-5 justify-between sm:gap-[4.75rem] px-5 md:px-11 py-3 min-h-[5rem] sm:min-h-[6.25rem] w-full group-hover:bg-primary-purple transition-colors duration-500 ease-in-out"
-                            href={post.acf.booking_url}
-                        >
-                            <span class="text-2xl sm:text-[2.125rem]"
-                                >Book your stay</span
-                            >
-                            <span
-                                class="block w-6 h-6 sm:w-8 sm:h-8 group-hover:rotate-45 duration-500 ease-in-out"
-                            >
-                                <Icon name="arrow" />
-                            </span>
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </section>
-        {post.acf.introduction && <TextCTA text={post.acf.introduction} />}
-        <LodgeDetails
-            tabs={post.acf.tabs_tabs}
-            description={post.acf.short_description}
-            carousel={post.acf.image_carousel_image_carousel}
-            url={post.acf.booking_url}
-        />
+					<div class="group bg-primary-orange" data-push="right">
+						<a
+							class="bg-primary-orange text-white flex items-center gap-5 justify-between sm:gap-[4.75rem] px-5 md:px-11 py-3 min-h-[5rem] sm:min-h-[6.25rem] w-full group-hover:bg-primary-purple transition-colors duration-500 ease-in-out"
+							href={post.acf.booking_url}
+						>
+							<span class="text-2xl sm:text-[2.125rem]"
+								>Book your stay</span
+							>
+							<span
+								class="block w-6 h-6 sm:w-8 sm:h-8 group-hover:rotate-45 duration-500 ease-in-out"
+							>
+								<Icon name="arrow" />
+							</span>
+						</a>
+					</div>
+				</div>
+			</div>
+		</section>
+		{post.acf.introduction && <TextCTA text={post.acf.introduction} />}
+		<LodgeDetails
+			tabs={post.acf.tabs_tabs}
+			description={post.acf.short_description}
+			carousel={post.acf.image_carousel_image_carousel}
+			url={post.acf.booking_url}
+		/>
 
-        {post.acf.image_gallery && <Gallery items={post.acf.image_gallery} />}
+		{post.acf.image_gallery && <Gallery items={post.acf.image_gallery} />}
 
-        <Testimonials />
-        <Categories />
-    </main>
+		<Testimonials />
+		<Categories />
+	</main>
 </Layout>

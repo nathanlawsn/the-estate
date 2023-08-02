@@ -3,21 +3,21 @@ import ReactPlayer from 'react-player/youtube';
 
 // Example component handling the data fetching
 const VideoModal = ({ url }) => {
-  const [videoUrl, setVideoUrl] = useState(null);
+  // const [videoUrl, setVideoUrl] = useState(null);
   const [showModal, setShowModal] = useState(false);
 
-  useEffect(() => {
-    const fetchVideoUrl = async () => {
-      // Perform the asynchronous data fetching here
-      const response = await fetch(`${url}`);
-      const data = await response.json();
+  // useEffect(() => {
+  //   const fetchVideoUrl = async () => {
+  //     // Perform the asynchronous data fetching here
+  //     const response = await fetch(`${url}`);
+  //     const data = await response.json();
 
-      // Once the data is fetched, update the video URL state
-      setVideoUrl(data[0].acf.video_slider_video_url);
-    };
+  //     // Once the data is fetched, update the video URL state
+  //     setVideoUrl(data[0].acf.video_slider_video_url);
+  //   };
 
-    fetchVideoUrl();
-  }, []); // Empty dependency array to run effect only once
+  //   fetchVideoUrl();
+  // }, []); // Empty dependency array to run effect only once
 
   const openModal = () => {
     setShowModal(true);
@@ -49,7 +49,7 @@ const VideoModal = ({ url }) => {
           <div className="relative w-full max-w-5xl px-8">
             <div className="bg-black">
               {showModal &&
-                <Video url={videoUrl} />
+                <Video url={url} />
               }
             </div>
             <button aria-label="Close modal" className="absolute -top-10 right-8 w-5 h-5" onClick={closeModal}>
