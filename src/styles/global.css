@@ -75,13 +75,11 @@ p {
 /* Indent content to match container width */
 
 [data-push="left"] {
-    padding-left: max(1rem, (100vw - 90rem) / 2);
-    padding-right: 0;
+    padding-left: max(1rem, (100vw - 90rem) / 2) !important;
 }
 
 [data-push="right"] {
-    padding-right: max(1rem, (100vw - 90rem) / 2);
-    padding-left: 0;
+    padding-right: max(1rem, (100vw - 90rem) / 2) !important;
 }
 
 /* Style inline content from WordPress */

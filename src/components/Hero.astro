@@ -14,7 +14,9 @@ const {
 } = Astro.props;
 ---
 
-<section class="grid grid-cols-1 lg:grid-cols-2 relative h-[75dvh]">
+<section
+	class="grid grid-cols-1 lg:grid-cols-2 relative h-[75dvh] max-lg:max-h-[50rem]"
+>
 	<div class="bg-slate-700 relative group overflow-hidden cursor-pointer">
 		<Picture
 			src={imageLeftUrl}

@@ -17,7 +17,7 @@ const MobileMenu = ({ items }) => {
         <div className={`fixed h-[calc(100dvh-7rem)] left-0 top-[7rem] w-full bg-off-white p-10 text-2xl font-medium z-50 duration-500 ease-in-out flex flex-col ${isOpen ? 'translate-x-0' : 'translate-x-full'}`}>
             <ul className='flex flex-col gap-5'>
               {items.items.map((item, i) =>(
-                <li key={i}>å
+                <li key={i}>
                     <a className="hover:underline focus:underline" href={item.slug ? `/${item.slug}` : '/#'}>
                         {item.title}
                     </a>
