@@ -10,7 +10,7 @@ import compress from "astro-compress";
 export default defineConfig({
   integrations: [tailwind(), react(), image({
     serviceEntryPoint: '@astrojs/image/sharp'
-  }), compress()],
+  })],
   experimental: {
     viewTransitions: true
   },
