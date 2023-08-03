@@ -24,13 +24,6 @@ const Booking = () => {
         jQuery.getScript(
             'https://patterdalehallestate.anytimebooking.eu/widgets/calendar/js/calendar.js'
         );
-        jQuery('<link>')
-            .appendTo('head')
-            .attr({ type: 'text/css', rel: 'stylesheet' })
-            .attr(
-            'href',
-            'https://patterdalehallestate.anytimebooking.eu/widgets/calendar/css/calendar-widget.css'
-            );
         }
     }, 1000);
     }, []);
@@ -38,8 +31,8 @@ const Booking = () => {
     return (
         <>
             <div className='group'>
-                <div className='bg-primary-orange group-hover:bg-primary-purple transition-colors duration-500 ease-in-out' data-push='right'>
-                    <button className='bg-primary-orange text-white flex items-center gap-5 justify-between sm:gap-[4.75rem] px-5 md:px-11 py-3 min-h-[5rem] sm:min-h-[6.25rem] w-full group-hover:bg-primary-purple transition-colors duration-500 ease-in-out' onClick={toggleDropdown}>
+                <div className={`bg-primary-orange group-hover:bg-primary-purple transition-colors duration-500 ease-in-out ${isOpen && 'bg-primary-purple'}`} data-push='right'>
+                    <button className={`bg-primary-orange text-white flex items-center gap-5 justify-between sm:gap-[4.75rem] px-5 lg:px-11 py-3 min-h-[5rem] sm:min-h-[6.25rem] w-full group-hover:bg-primary-purple transition-colors duration-500 ease-in-out ${isOpen && 'bg-primary-purple'}`} onClick={toggleDropdown}>
                         <span className='text-3xl'>Check availability</span>
                         {isOpen ? 
                             <svg className='w-8 h-8' xmlns="http://www.w3.org/2000/svg" width="37.243" height="37.243" viewBox="0 0 37.243 37.243">
@@ -61,7 +54,7 @@ const Booking = () => {
                     </button>
                 </div>
             </div>
-            <div className={`bg-primary-purple text-white col-span-2 py-10 md:py-20 ${isOpen ? 'block' : 'hidden'}`}>
+            <div className={`bg-primary-purple text-white col-span-2 py-10 lg:pt-28 lg:pb-24 ${isOpen ? 'block' : 'hidden'}`}>
                 <div className='w-full max-w-[94rem] mx-auto px-8'>
                     <div id="atb_calendar_container" className='!max-w-none'>
                     <div
@@ -70,6 +63,7 @@ const Booking = () => {
                         data-category="48449"
                         data-unit="69536"
                         data-months="3"
+                        className='grid gap-10 xl:grid-cols-4 xl:gap-20 border-none p-0 m-0'
                     >
                         <span className="no-js">Sorry, this calendar requires javascript in order to work.</span>
                     </div>

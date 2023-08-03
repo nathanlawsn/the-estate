@@ -45,9 +45,9 @@ export async function getStaticPaths() {
 		</section>
 		<section class="relative">
 			<div>
-				<div class="grid lg:grid-cols-2">
+				<div class="lg:grid lg:grid-cols-2">
 					<div
-						class="flex flex-col sm:flex-row sm:items-center sm:justify-between py-8 lg:py-6 px-5 gap-4 min-h-[5rem] bg-white sm:pr-16"
+						class="flex flex-col sm:flex-row sm:items-center sm:justify-between py-8 lg:py-6 px-5 gap-4 min-h-[5rem] bg-white lg:pr-16"
 						data-push="left"
 					>
 						<h1 class="text-3xl font-medium">
@@ -80,3 +80,69 @@ export async function getStaticPaths() {
 		<Categories />
 	</main>
 </Layout>
+
+<style is:global>
+	.atb_calendar_container {
+		@apply col-span-3 max-w-none;
+	}
+	#atb_calendar_container > div:last-child {
+		@apply mt-5;
+	}
+	.atb_calendar_container br {
+		@apply hidden;
+	}
+	.atb_calendar_content_container {
+		@apply grid grid-cols-1 gap-10 md:grid-cols-3 lg:gap-20;
+	}
+	.atb_calendar_content {
+		@apply text-xl flex flex-col gap-7;
+	}
+	.atb_calendar_content > div {
+		@apply flex flex-col gap-1;
+	}
+	.atb_calendar_month {
+		@apply text-center font-bold;
+	}
+	.atb_calendar_content .days {
+		@apply grid grid-cols-7 text-center;
+	}
+	.atb_calendar_content .days .cell {
+		@apply w-10 h-10;
+	}
+	.atb_calendar_content .week_start {
+		@apply grid grid-cols-7 text-center;
+	}
+	.atb_calendar_content .cell .date_number {
+		@apply rounded-full w-10 h-10 flex items-center justify-center;
+	}
+	.atb_calendar_content .start .date_number {
+		@apply rounded-full border-2 border-[#86AC9C] cursor-pointer;
+	}
+	.atb_calendar_content .selection .date_number {
+		@apply bg-[#86AC9C];
+	}
+	.prev_next_container_top {
+		@apply flex justify-between text-xl font-bold mb-8 xl:mb-12;
+	}
+	.prev_next_container_top span {
+		@apply cursor-pointer;
+	}
+	.prev_next_container_bottom {
+		@apply hidden;
+	}
+	#atb_loading strong {
+		@apply block font-medium;
+	}
+	#atb_loading strong:nth-child(1) {
+		@apply text-xl block my-5 xl:my-10;
+	}
+	#atb_loading strong:nth-child(2) {
+		@apply text-5xl;
+	}
+	#atb_reset-selection {
+		@apply underline text-xl my-7 xl:my-14 cursor-pointer hover:no-underline;
+	}
+	#atb_booknow {
+		@apply bg-primary-orange hover:bg-white hover:text-primary-orange transition-colors duration-500 ease-in-out text-white font-medium text-3xl py-7 px-6 cursor-pointer;
+	}
+</style>
