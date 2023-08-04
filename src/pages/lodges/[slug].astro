@@ -62,7 +62,11 @@ export async function getStaticPaths() {
 							>
 						</div>
 					</div>
-					<Booking client:load />
+					<Booking
+						dataCategory={post.acf.anytime_booking.data_category}
+						dataUrl={post.acf.anytime_booking.data_unit}
+						client:load
+					/>
 				</div>
 			</div>
 		</section>
