@@ -22,14 +22,14 @@ export default function Card({ title, text, imageUrl, imageAlt, category, slug }
 				<div
 					className="bg-white absolute bottom-0 z-10 w-full translate-y-[calc(100%-6.5rem)] group-hover:translate-y-0 duration-500 ease-in-out px-6 py-7"
 				>
-					<h3 className="text-3xl">{title}</h3>
-					<p className="text-base text-[#999999] m-0 mt-9 line-clamp-2">
+					<h3 className="text-3xl font-medium">{title}</h3>
+					<p className="text-base font-medium text-[#999999] m-0 mt-9 line-clamp-2">
 						{text}
 					</p>
 				</div>
 			</div>
 			<div className="flex items-center gap-4 relative z-20 bg-white px-6 py-7">
-				<span className="text-xl">Read article</span>
+				<span className="text-xl font-medium">Read article</span>
 				<span
 					className="block w-4 h-4 group-hover:rotate-45 duration-500 ease-in-out"
 				>

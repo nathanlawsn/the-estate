@@ -52,9 +52,11 @@ let [post] = await res.json();
 			<div
 				class="flex md:flex-col lg:flex-row items-center md:items-start lg:items-center justify-between gap-5 md:gap-2 lg:gap-5 px-6 py-7 md:py-5 lg:py-7"
 			>
-				<p class="text-2xl lg:text-3xl m-0">{post.title.rendered}</p>
+				<p class="text-2xl lg:text-3xl font-medium m-0">
+					{post.title.rendered}
+				</p>
 				<span class="flex items-center gap-4">
-					<span class="text-xl">Details</span>
+					<span class="text-xl font-medium">Details</span>
 					<span
 						class="block w-4 h-4 group-hover:rotate-45 duration-500 ease-in-out delay-500"
 					>
@@ -75,7 +77,7 @@ let [post] = await res.json();
 			href={post.acf.booking_url}
 			target="_blank"
 		>
-			<span class="text-2xl lg:text-3xl">Book now</span>
+			<span class="text-2xl lg:text-3xl font-medium">Book now</span>
 			<span
 				class="block w-4 h-4 group-hover:rotate-45 duration-500 delay-500 ease-in-out"
 			>
