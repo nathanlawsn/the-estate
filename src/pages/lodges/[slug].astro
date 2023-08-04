@@ -83,7 +83,7 @@ export async function getStaticPaths() {
 
 <style is:global>
 	.atb_calendar_container {
-		@apply col-span-3 max-w-none;
+		@apply max-w-none;
 	}
 	#atb_calendar_container > div:last-child {
 		@apply mt-5;
@@ -92,7 +92,7 @@ export async function getStaticPaths() {
 		@apply hidden;
 	}
 	.atb_calendar_content_container {
-		@apply grid grid-cols-1 gap-10 md:grid-cols-3 lg:gap-20;
+		@apply grid grid-cols-1 gap-10 md:grid-cols-3 2xl:gap-20;
 	}
 	.atb_calendar_content {
 		@apply text-xl flex flex-col gap-7;
@@ -104,16 +104,16 @@ export async function getStaticPaths() {
 		@apply text-center font-bold;
 	}
 	.atb_calendar_content .days {
-		@apply grid grid-cols-7 text-center;
+		@apply grid grid-cols-7 text-center font-medium;
 	}
 	.atb_calendar_content .days .cell {
-		@apply w-10 h-10;
+		@apply w-10 h-10 font-medium;
 	}
 	.atb_calendar_content .week_start {
 		@apply grid grid-cols-7 text-center;
 	}
 	.atb_calendar_content .cell .date_number {
-		@apply rounded-full w-10 h-10 flex items-center justify-center;
+		@apply rounded-full w-10 h-10 flex items-center justify-center font-medium;
 	}
 	.atb_calendar_content .start .date_number {
 		@apply rounded-full border-2 border-[#86AC9C] cursor-pointer;
@@ -130,17 +130,23 @@ export async function getStaticPaths() {
 	.prev_next_container_bottom {
 		@apply hidden;
 	}
+	#atb_loading {
+		@apply font-medium;
+	}
+	#atb_loading p {
+		@apply text-base;
+	}
 	#atb_loading strong {
 		@apply block font-medium;
 	}
 	#atb_loading strong:nth-child(1) {
-		@apply text-xl block my-5 xl:my-10;
+		@apply text-xl block mb-5 xl:mb-10;
 	}
 	#atb_loading strong:nth-child(2) {
 		@apply text-5xl;
 	}
 	#atb_reset-selection {
-		@apply underline text-xl my-7 xl:my-14 cursor-pointer hover:no-underline;
+		@apply underline text-xl my-7 xl:my-10 cursor-pointer hover:no-underline font-medium;
 	}
 	#atb_booknow {
 		@apply bg-primary-orange hover:bg-white hover:text-primary-orange transition-colors duration-500 ease-in-out text-white font-medium text-3xl py-7 px-6 cursor-pointer;
