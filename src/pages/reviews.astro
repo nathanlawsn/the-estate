@@ -1,0 +1,68 @@
+---
+import { Icon } from "astro-icon";
+import { Picture } from "@astrojs/image/components";
+import Layout from "../layouts/Layout.astro";
+import Container from "../components/Container.astro";
+import Button from "../components/Button.astro";
+import Reviews from "../components/react/Reviews";
+import ReviewSources from "../components/ReviewSources.astro";
+
+let res = await fetch(
+	`${import.meta.env.API_URL}/wp-json/wp/v2/pages?slug=reviews`
+);
+let [page] = await res.json();
+---
+
+<Layout
+	title={page.yoast_head_json.title}
+	description={page.yoast_head_json.description}
+	nav
+>
+	<main>
+		<section>
+			<div class="bg-primary-green text-white">
+				<Container>
+					<div
+						class="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-10 lg:min-h-[15.25rem] py-14"
+					>
+						<div>
+							<div class="font-medium text-xl mb-3.5">
+								<Fragment set:html={page.title.rendered} />
+							</div>
+							<h1
+								class="font-medium text-4xl md:text-[3.125rem]/[3.625rem] max-w-4xl [text-wrap:balance]"
+							>
+								What our customers say about us
+							</h1>
+						</div>
+
+						<Button text="View our Tripadvisor" url="#" arrow />
+					</div>
+				</Container>
+			</div>
+
+			<div>
+				<Picture
+					src={page.acf.banner_image_image.url}
+					alt={page.acf.banner_image_image.alt}
+					widths={[768, 1024, 1600]}
+					aspectRatio="1600:642"
+					sizes="(max-width: 768px) 100vw, 1024px, 1600px"
+					fit="cover"
+					class="w-full h-full object-cover"
+				/>
+			</div>
+		</section>
+		<section>
+			<Container>
+				<div class="md:-mt-40 py-16 md:pt-0 md:pb-36">
+					<Reviews items={page.acf.reviews_reviews} client:load />
+				</div>
+			</Container>
+		</section>
+		<ReviewSources
+			heading={page.acf.review_sources.heading}
+			items={page.acf.review_sources.logos}
+		/>
+	</main>
+</Layout>

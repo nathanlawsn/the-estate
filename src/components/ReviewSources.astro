@@ -1,0 +1,44 @@
+---
+import { Picture } from "@astrojs/image/components";
+import Container from "./Container.astro";
+
+const { heading, items } = Astro.props;
+---
+
+<section class="bg-white py-20 md:py-24">
+	<Container>
+		<h3 class="text-center font-medium text-[1.875rem]/[2.5rem]">
+			{heading}
+		</h3>
+		<!-- <div class="flex items-center justify-between">
+			{
+				items.map((item) =>
+					item.link ? (
+						<a
+							title="Read reviews on SITE"
+							target="blank"
+							href={item.link}
+							class="grow-0 shrink-0"
+						>
+							<Picture
+								src={item.image.url}
+								alt={item.image.alt}
+								widths={[768, 1024, 1600]}
+								aspectRatio="1600:642"
+								sizes="(max-width: 768px) 100vw, 1024px, 1600px"
+								fit="cover"
+								class="w-full h-full object-cover"
+							/>
+						</a>
+					) : (
+						<img
+							class="grow-0 shrink-0"
+							src={item.image.url}
+							alt={item.image.alt}
+						/>
+					)
+				)
+			}
+		</div> -->
+	</Container>
+</section>
