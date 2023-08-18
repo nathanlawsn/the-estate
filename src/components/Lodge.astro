@@ -10,7 +10,11 @@ let res = await fetch(
 let [post] = await res.json();
 ---
 
-<div class="overflow-hidden relative group bg-white">
+<a
+	href=`/lodges/${post.slug}`
+	title={`Find out more and book ${post.title.rendered}`}
+	class="overflow-hidden relative group bg-white"
+>
 	<div class="relative">
 		<Picture
 			src={post.acf.thumbnail_image.url}
@@ -48,41 +52,28 @@ let [post] = await res.json();
 	<div
 		class="bg-white lg:absolute bottom-0 w-full lg:translate-y-[calc(100%-5.75rem)] group-hover:lg:translate-y-0 duration-500 ease-in-out"
 	>
-		<a href=`/lodges/${post.slug}`>
-			<div
-				class="flex md:flex-col lg:flex-row items-center md:items-start lg:items-center justify-between gap-5 md:gap-2 lg:gap-5 px-6 py-7 md:py-5 lg:py-7"
-			>
-				<p class="text-2xl lg:text-3xl font-medium m-0">
-					{post.title.rendered}
-				</p>
-				<span class="flex items-center gap-4">
-					<span class="text-xl font-medium">Details</span>
-					<span
-						class="block w-4 h-4 group-hover:rotate-45 duration-500 ease-in-out delay-500"
-					>
-						<Icon name="arrow" />
-					</span>
-				</span>
-			</div>
-			<div class="hidden lg:block">
-				<div class="px-6 pb-7">
-					<p class="text-base text-[#999999] m-0">
-						{post.acf.introduction}
-					</p>
-				</div>
-			</div>
-		</a>
-		<a
-			class="bg-primary-orange text-white flex items-center gap-5 justify-between px-6 py-7 md:py-5 lg:py-7 w-full"
-			href={post.acf.booking_url}
-			target="_blank"
+		<div
+			class="flex md:flex-col lg:flex-row items-center md:items-start lg:items-center justify-between gap-5 md:gap-2 lg:gap-5 px-6 py-7 md:py-5 lg:py-7"
 		>
-			<span class="text-2xl lg:text-3xl font-medium">Book now</span>
-			<span
-				class="block w-4 h-4 group-hover:rotate-45 duration-500 delay-500 ease-in-out"
-			>
-				<Icon name="arrow" />
+			<p
+				class="text-2xl lg:text-3xl font-medium m-0"
+				set:html={post.title.rendered}
+			/>
+			<span class="flex items-center gap-4">
+				<span class="text-xl font-medium">Bookings</span>
+				<span
+					class="block w-4 h-4 group-hover:rotate-45 duration-500 ease-in-out"
+				>
+					<Icon name="arrow" />
+				</span>
 			</span>
-		</a>
+		</div>
+		<div class="hidden lg:block">
+			<div class="px-6 pb-7">
+				<p class="text-base text-[#999999] m-0">
+					{post.acf.introduction}
+				</p>
+			</div>
+		</div>
 	</div>
-</div>
+</a>
