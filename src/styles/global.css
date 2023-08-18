@@ -82,6 +82,11 @@ p {
     padding-right: max(1rem, (100vw - 90rem) / 2) !important;
 }
 
+[data-push="both"] {
+    padding-left: max(1rem, (100vw - 90rem) / 2) !important;
+    padding-right: max(1rem, (100vw - 90rem) / 2) !important;
+}
+
 /* Style inline content from WordPress */
 
 .content img {

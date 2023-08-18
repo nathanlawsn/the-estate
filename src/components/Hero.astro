@@ -27,23 +27,6 @@ const {
 			class="object-cover w-full h-full group-hover:scale-110 duration-[3000ms] transition-transform block"
 			loading="eager"
 		/>
-
-		{
-			buttonUrl && (
-				<a
-					class="bg-primary-orange text-white font-medium flex items-center gap-5 justify-between sm:gap-[4.75rem] px-5 md:px-11 py-3 min-h-[5rem] sm:min-h-[6.25rem] w-full absolute bottom-0 group-hover:bg-primary-purple transition-colors duration-500 ease-in-out"
-					href={buttonUrl}
-					target={buttonTarget}
-				>
-					<span class="text-2xl sm:text-[2.125rem]">
-						{buttonText}
-					</span>
-					<span class="block w-6 h-6 sm:w-8 sm:h-8 group-hover:rotate-45 duration-500 ease-in-out">
-						<Icon name="arrow" />
-					</span>
-				</a>
-			)
-		}
 	</div>
 
 	<div class="bg-slate-600 hidden lg:block group overflow-hidden">
@@ -66,3 +49,20 @@ const {
 		)
 	}
 </section>
+{
+	buttonUrl && (
+		<div>
+			<a
+				class="bg-primary-orange group text-white font-medium flex items-center gap-5 justify-between sm:gap-[4.75rem] px-5 md:px-11 py-3 min-h-[5rem] sm:min-h-[6.25rem] w-full hover:bg-primary-purple transition-colors duration-500 ease-in-out"
+				href={buttonUrl}
+				target={buttonTarget}
+				data-push="both"
+			>
+				<span class="text-2xl sm:text-[2.125rem]">{buttonText}</span>
+				<span class="block w-6 h-6 sm:w-8 sm:h-8 group-hover:rotate-45 duration-500 ease-in-out">
+					<Icon name="arrow" />
+				</span>
+			</a>
+		</div>
+	)
+}
