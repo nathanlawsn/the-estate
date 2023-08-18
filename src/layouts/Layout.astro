@@ -7,9 +7,10 @@ export interface Props {
 	title: string;
 	description: string;
 	nav?: boolean;
+	headerBg?: string;
 }
 
-const { title, description, nav } = Astro.props;
+const { title, description, nav, headerBg } = Astro.props;
 ---
 
 <!DOCTYPE html>
@@ -23,7 +24,7 @@ const { title, description, nav } = Astro.props;
 		<title>{title}</title>
 	</head>
 	<body>
-		<Header nav={nav} />
+		<Header nav={nav} style={headerBg} />
 		<slot />
 		<Footer />
 	</body>

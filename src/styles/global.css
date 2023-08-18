@@ -144,3 +144,23 @@ p {
 ::view-transition-new(footer) {
     mix-blend-mode: normal;
 } */
+
+input[type="text"],
+input[type="tel"],
+input[type="email"],
+input[type="search"],
+textarea {
+    @apply !text-black !font-medium !text-xl !bg-white !px-9 !py-6 !w-full;
+}
+
+::placeholder {
+    @apply !text-black;
+}
+
+input[type="submit"] {
+    @apply bg-primary-orange text-white text-2xl sm:text-[2.125rem] font-medium flex items-center gap-5 sm:gap-[4.75rem] px-5 md:px-11 py-3 min-h-[5rem] sm:min-h-[6.25rem] w-full hover:bg-primary-purple transition-colors duration-500 ease-in-out text-center justify-center cursor-pointer;
+}
+
+label {
+    @apply !font-medium !text-black !text-lg;
+}
