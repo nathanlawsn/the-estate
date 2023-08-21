@@ -1,0 +1,103 @@
+---
+import Container from "./Container.astro";
+
+const { video, title, poster } = Astro.props;
+---
+
+<section class="bg-primary-purple py-16 md:py-[5.25rem]">
+	<Container>
+		<div class="aspect-video relative">
+			<video
+				class="w-full h-full object-cover"
+				controls
+				preload="none"
+				poster={poster.url}
+			>
+				<source src={video} type="video/mp4" />
+				Your browser does not support the video tag.
+			</video>
+			<div
+				id="video--overlay"
+				class="absolute top-0 bottom-0 left-0 right-0 bg-black/[0.07]"
+			>
+			</div>
+			<div
+				id="video--title"
+				class="absolute top-10 left-10 text-white font-medium text-[1.875rem]/[2.5rem]"
+			>
+				{title}
+			</div>
+			<div
+				class="absolute cursor-pointer left-0 right-0 z-30 top-1/2 -translate-y-1/2 hover:scale-105 duration-500 ease-in-out transition-transform flex justify-center"
+			>
+				<span
+					id="video--button"
+					class="w-16 h-16 sm:w-[5.5rem] sm:h-[5.5rem]"
+				>
+					<svg
+						class="w-full h-full"
+						xmlns="http://www.w3.org/2000/svg"
+						width="88"
+						height="88"
+						viewBox="0 0 88 88"
+					>
+						<g
+							id="Group_24"
+							data-name="Group 24"
+							transform="translate(-446.25 -1652)"
+						>
+							<g
+								id="Ellipse_3"
+								data-name="Ellipse 3"
+								transform="translate(446.25 1652)"
+								fill="#fff"
+								stroke="#fff"
+								stroke-width="1"
+							>
+								<circle cx="44" cy="44" r="44" stroke="none"
+								></circle>
+								<circle cx="44" cy="44" r="43.5" fill="none"
+								></circle>
+							</g>
+							<path
+								id="Polygon_3"
+								data-name="Polygon 3"
+								d="M11,0,22,19H0Z"
+								transform="translate(502.25 1684.5) rotate(90)"
+								fill="#ff834b"></path>
+						</g>
+					</svg>
+				</span>
+			</div>
+		</div>
+	</Container>
+</section>
+
+<script>
+	document.addEventListener("DOMContentLoaded", function () {
+		var playButton = document.getElementById("video--button");
+		var videoOverlay = document.getElementById("video--overlay");
+		var videoTitle = document.getElementById("video--title");
+		var videoElement = document.querySelector("video");
+
+		videoElement.addEventListener("play", function () {
+			playButton.classList.add("hidden");
+			videoOverlay.classList.add("hidden");
+			videoTitle.classList.add("hidden");
+		});
+
+		videoElement.addEventListener("pause", function () {
+			playButton.classList.remove("hidden");
+			videoOverlay.classList.remove("hidden");
+			videoTitle.classList.remove("hidden");
+		});
+
+		playButton.addEventListener("click", function () {
+			if (videoElement.paused) {
+				videoElement.play();
+			} else {
+				videoElement.pause();
+			}
+		});
+	});
+</script>
