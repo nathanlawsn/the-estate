@@ -7,6 +7,7 @@ import Lodges from "../components/Lodges.astro";
 import Testimonials from "../components/Testimonials.astro";
 import Categories from "../components/Categories.astro";
 import VideoInline from "../components/VideoInline.astro";
+import ImageContent from "../components/ImageContent.astro";
 
 // let api = `${import.meta.env.API_URL}/wp-json/wp/v2/pages?slug=homepage`;
 let res = await fetch(
@@ -44,11 +45,17 @@ let page = await res.json();
 				<Lodges items={page[0].acf.featured_accommodation} />
 			)
 		}
-		<VideoSlider
+		<!-- <VideoSlider
 			videoUrl={page[0].acf.video_slider_video_url}
 			videoThumbnailUrl={page[0].acf.video_slider_video_thumbnail.url}
 			videoThumbnailAlt={page[0].acf.video_slider_video_thumbnail.alt}
 			items={page[0].acf.video_slider_items}
+		/> -->
+		<ImageContent
+			heading={page[0].acf.image_content.heading}
+			text={page[0].acf.image_content.text}
+			list={page[0].acf.image_content.list}
+			image={page[0].acf.image_content.image}
 		/>
 		<VideoInline
 			video={page[0].acf.video_video.url}

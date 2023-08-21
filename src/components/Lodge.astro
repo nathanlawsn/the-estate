@@ -23,7 +23,7 @@ let [post] = await res.json();
 			sizes="(max-width: 480px) 100vw, 1024px"
 			alt={post.acf.thumbnail_image.alt}
 			fit="cover"
-			class="opacity-100 group-hover:lg:opacity-0 duration-500 ease-in-out"
+			class="opacity-100 group-hover:xl:opacity-0 duration-500 ease-in-out"
 		/>
 		{
 			post.acf.thumbnail_hover_image && (
@@ -33,7 +33,7 @@ let [post] = await res.json();
 					aspectRatio="483:483"
 					sizes="(max-width: 480px) 100vw, 1024px"
 					alt={post.acf.thumbnail_hover_image.alt}
-					class="hidden lg:block absolute top-0 left-0 opacity-0 group-hover:opacity-100 duration-500 ease-in-out"
+					class="hidden xl:block absolute top-0 left-0 opacity-0 group-hover:opacity-100 duration-500 ease-in-out"
 				/>
 			)
 		}
@@ -50,10 +50,10 @@ let [post] = await res.json();
 	</div>
 
 	<div
-		class="bg-white lg:absolute bottom-0 w-full lg:translate-y-[calc(100%-5.75rem)] group-hover:lg:translate-y-0 duration-500 ease-in-out"
+		class="bg-white xl:absolute bottom-0 w-full xl:translate-y-[calc(100%-5.75rem)] group-hover:xl:translate-y-0 duration-500 ease-in-out"
 	>
 		<div
-			class="flex md:flex-col lg:flex-row items-center md:items-start lg:items-center justify-between gap-5 md:gap-2 lg:gap-5 px-6 py-7 md:py-5 lg:py-7"
+			class="flex md:flex-col xl:flex-row items-center md:items-start xl:items-center justify-between gap-5 md:gap-2 lg:gap-3 xl:gap-5 px-6 py-7 md:py-5 xl:py-7"
 		>
 			<p
 				class="text-2xl lg:text-3xl font-medium m-0"
@@ -68,7 +68,7 @@ let [post] = await res.json();
 				</span>
 			</span>
 		</div>
-		<div class="hidden lg:block">
+		<div class="hidden xl:block">
 			<div class="px-6 pb-7">
 				<p class="text-base text-[#999999] m-0">
 					{post.acf.introduction}

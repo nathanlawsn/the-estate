@@ -1,0 +1,62 @@
+---
+import { Icon } from "astro-icon";
+import { Picture } from "@astrojs/image/components";
+import Container from "./Container.astro";
+
+const { heading, text, list, image } = Astro.props;
+---
+
+<section
+	class="relative before:top-0 before:h-1/2 before:left-0 before:right-0 before:absolute before:bg-off-white after:bottom-0 after:h-1/2 after:left-0 after:right-0 after:absolute after:bg-white after:z-0 pb-20 md:pb-32 lg:pb-40"
+>
+	<Container>
+		<div
+			class="bg-[#522D43] text-white grid grid-cols-1 lg:grid-cols-2 p-10 md:py-[5.375rem] md:px-[4.125rem] lg:py-[5.375rem] lg:px-[4.125rem] gap-12 md:gap-20 lg:gap-12 xl:gap-20 relative overflow-hidden z-10"
+		>
+			{
+				image && (
+					<div class="aspect-[696/640] bg-black flex items-center justify-center relative">
+						<Picture
+							src={image.url}
+							widths={[400, 696]}
+							aspectRatio="696:640"
+							sizes="(max-width: 696px) 100vw"
+							alt={image.alt}
+							class="object-cover w-full h-full"
+						/>
+					</div>
+				)
+			}
+			<div class="flex flex-col justify-center">
+				{
+					heading && (
+						<h3
+							class="text-primary-orange font-medium text-3xl lg:text-4xl [text-wrap:balance]"
+							set:html={heading}
+						/>
+					)
+				}
+				<div
+					class="mt-12 flex flex-col gap-8 lg:gap-12 font-medium text-lg"
+				>
+					{text && <div class="space-y-5" set:html={text} />}
+					{
+						list && (
+							<ul class="text-lg font-medium sm:columns-2 space-y-5 sm:gap-x-10">
+								{list.map((item) => (
+									<li class="flex items-start gap-4">
+										<Icon
+											class="w-5 shrink-0 fill-primary-orange translate-y-1"
+											name="tick"
+										/>
+										{item.item}
+									</li>
+								))}
+							</ul>
+						)
+					}
+				</div>
+			</div>
+		</div>
+	</Container>
+</section>
