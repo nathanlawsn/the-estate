@@ -5,6 +5,6 @@ let res = await fetch(`${import.meta.env.API_URL}/wp-json/options/all`);
 let items = await res.json();
 ---
 
-<section class="bg-white mt-24">
+<section class="bg-white">
 	<QuoteSlider client:visible items={items} />
 </section>

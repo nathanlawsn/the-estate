@@ -6,6 +6,7 @@ import VideoSlider from "../components/VideoSlider.astro";
 import Lodges from "../components/Lodges.astro";
 import Testimonials from "../components/Testimonials.astro";
 import Categories from "../components/Categories.astro";
+import VideoInline from "../components/VideoInline.astro";
 
 // let api = `${import.meta.env.API_URL}/wp-json/wp/v2/pages?slug=homepage`;
 let res = await fetch(
@@ -37,19 +38,23 @@ let page = await res.json();
 			buttonURL={page[0].acf.text_cta_button.url}
 			styles="bg-white"
 		/>
-		<VideoSlider
-			videoUrl={page[0].acf.video_slider_video_url}
-			videoThumbnailUrl={page[0].acf.video_slider_video_thumbnail.url}
-			videoThumbnailAlt={page[0].acf.video_slider_video_thumbnail.alt}
-			items={page[0].acf.video_slider_items}
-		/>
 
 		{
 			page[0].acf.featured_accommodation && (
 				<Lodges items={page[0].acf.featured_accommodation} />
 			)
 		}
-
+		<VideoSlider
+			videoUrl={page[0].acf.video_slider_video_url}
+			videoThumbnailUrl={page[0].acf.video_slider_video_thumbnail.url}
+			videoThumbnailAlt={page[0].acf.video_slider_video_thumbnail.alt}
+			items={page[0].acf.video_slider_items}
+		/>
+		<VideoInline
+			video={page[0].acf.video_video.url}
+			title={page[0].acf.video_video_title}
+			poster={page[0].acf.video_video_poster}
+		/>
 		<Testimonials />
 		<Categories />
 	</main>
