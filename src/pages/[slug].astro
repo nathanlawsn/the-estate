@@ -28,19 +28,42 @@ export async function getStaticPaths() {
 
 <Layout title={`${page.title.rendered} | The Estate`} description="" nav>
 	<main>
-		<section class="py-16 md:py-24 md:pb-36 bg-white">
-			<Container>
-				<h1
-					class="font-medium text-4xl md:text-[3.125rem]/[3.625rem] max-w-4xl [text-wrap:balance]"
-				>
-					{page.title.rendered}
-				</h1>
-			</Container>
+		<section>
+			<div class="bg-primary-purple text-white">
+				<Container>
+					<div
+						class="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-10 lg:min-h-[15.25rem] py-14"
+					>
+						<div>
+							<div class="font-medium text-xl mb-3.5">
+								<Fragment set:html={page.title.rendered} />
+							</div>
+							<h1
+								class="font-medium text-4xl md:text-[3.125rem]/[3.625rem] max-w-4xl [text-wrap:balance]"
+								]
+								set:html={page.title.rendered}
+							/>
+						</div>
+					</div>
+				</Container>
+			</div>
 		</section>
-		{
-			page.acf.flexible_content && (
-				<FlexibleContent data={page.acf.flexible_content} />
-			)
-		}
+
+		<div>
+			<Picture
+				src={page.acf.banner_image.image.url}
+				alt={page.acf.banner_image.image.alt}
+				widths={[768, 1024, 1600]}
+				aspectRatio="1600:642"
+				sizes="(max-width: 768px) 100vw, 1024px, 1600px"
+				fit="cover"
+				class="w-full h-full object-cover"
+			/>
+		</div>
 	</main>
+	{
+		page.acf.flexible_content && (
+			<FlexibleContent data={page.acf.flexible_content} />
+		)
+	}
 </Layout>
